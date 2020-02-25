@@ -1,0 +1,98 @@
+2020-01-26 18:05:05.5828 [DEBUG] Validating model...
+2020-01-26 18:05:05.8092 [DEBUG] Model validated
+2020-01-26 18:05:05.8102 [DEBUG] Authenticating with server...
+2020-01-26 18:05:06.7035 [DEBUG] Connected to room. (118107:SceneFusion:SceneFusion)
+2020-01-26 18:05:06.7094 [INFO] Connected to server.
+2020-01-26 18:05:06.7094 [DEBUG] OS : Microsoft Windows NT 10.0.18362.0
+2020-01-26 18:05:06.7104 [DEBUG] Unity Version : 2019.2.19f1
+2020-01-26 18:05:06.7104 [DEBUG] Pro License : False
+2020-01-26 18:05:06.7104 [DEBUG] Platform : WindowsEditor
+2020-01-26 18:05:06.7104 [DEBUG] Build Target : StandaloneWindows64
+2020-01-26 18:05:06.7104 [DEBUG] Scene Fusion version : 1.8.6
+2020-01-26 18:05:06.7114 [DEBUG] Scene Fusion client build : 0
+2020-01-26 18:05:06.7114 [DEBUG] User : Sammo351@gmail.com
+2020-01-26 18:05:06.7114 [DEBUG] Waiting for server response
+2020-01-26 18:05:06.7823 [DEBUG] Tier: Scene Fusion Free, Permissions: 00000200
+2020-01-26 18:05:06.7832 [DEBUG] User Permissions: FFFFFFFF
+2020-01-26 18:05:07.0680 [DEBUG] No stand-in for UnityEngine.LocalizationAsset
+2020-01-26 18:05:07.0680 [DEBUG] No stand-in for UnityEngine.ProceduralMaterial
+2020-01-26 18:05:07.0680 [DEBUG] No stand-in for UnityEngine.ProceduralTexture
+2020-01-26 18:05:07.0680 [DEBUG] No stand-in for UnityEngine.TerrainLayer
+2020-01-26 18:05:07.0690 [DEBUG] No stand-in for UnityEngine.Experimental.VFX.VisualEffectAsset
+2020-01-26 18:05:07.6079 [DEBUG] Uploading scene 'Untitled'
+2020-01-26 18:05:07.6737 [WARNING] Cannot sync 'New Aura Base Settings' (AuraBaseSettings) because it is not in Unity's asset database.
+2020-01-26 18:05:09.4611 [WARNING] Cannot sync 'Default Aura Quality Settings' (AuraQualitySettings) because it is not in Unity's asset database.
+2020-01-26 18:05:09.5185 [WARNING] Cannot sync '_Directional light : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:05:09.5195 [WARNING] Cannot sync '_Directional light : Shadow Data Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:05:09.6027 [DEBUG] Encoding objects for KinematicSoup/SceneFusion/Temp/Untitled.unity
+2020-01-26 18:05:10.6181 [WARNING] Cannot sync 'Spot Light : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:05:10.6540 [DEBUG] Compressing scene data
+2020-01-26 18:05:11.8082 [DEBUG] Spawn request. (Objects: 1078)
+2020-01-26 18:05:11.8121 [DEBUG] Entity RPC. (Id: 1, Size: 24486, Reporting Threshold: 10000)
+2020-01-26 18:05:14.9570 [DEBUG] Loading complete
+2020-01-26 18:05:36.9136 [DEBUG] Spawn request. (Objects: 22)
+2020-01-26 18:05:56.6077 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:06:02.8969 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:06:11.0752 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:06:53.1282 [WARNING] Cannot sync 'Spot Light (1) : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:06:53.1282 [DEBUG] Spawn request. (Objects: 2)
+2020-01-26 18:06:57.6633 [WARNING] Cannot sync 'Spot Light (2) : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:06:57.6633 [DEBUG] Spawn request. (Objects: 2)
+2020-01-26 18:07:40.5099 [WARNING] Cannot sync 'Spot Light (3) : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:07:40.5109 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:09:03.7915 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:09:09.8495 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:09:11.9632 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:09:26.6973 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:09:41.1075 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:09:46.3766 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:10:21.7792 [WARNING] Cannot sync 'Point Light : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:10:43.1599 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:10:50.3138 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:11:06.6585 [DEBUG] Spawn request. (Objects: 4)
+2020-01-26 18:11:11.2807 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:11:21.6539 [DEBUG] Spawn request. (Objects: 2)
+2020-01-26 18:11:38.2935 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:12:11.3271 [DEBUG] Spawn request. (Objects: 5)
+2020-01-26 18:13:41.4910 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:13:50.5636 [WARNING] Cannot sync 'Point Light (1) : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:13:50.5636 [DEBUG] Spawn request. (Objects: 1)
+2020-01-26 18:14:10.2047 [DEBUG] Disconnecting temporarily to enter play mode.
+2020-01-26 18:14:10.2047 [DEBUG] Disconnecting from room (118107:SceneFusion:SceneFusion)
+2020-01-26 18:14:10.2106 [INFO] Disconnected from server.
+2020-01-26 18:14:10.2106 [DEBUG] Disconnect. (Duration: 543)
+2020-01-26 18:14:10.3588 [INFO] Static batching in play mode is not supported in a Scene Fusion session and will be temporarily disabled.
+2020-01-26 18:14:12.6888 [DEBUG] Scene Fusion version 1.8.6-0
+2020-01-26 18:14:13.0621 [DEBUG] Play mode: True, sync in play mode: False
+2020-01-26 18:14:13.6970 [DEBUG] Connecting to room (118107:SceneFusion:SceneFusion) via TCP at roommanager-ec2-35-164-71-216.kinematicsoup.com:21312
+2020-01-26 18:14:13.7407 [DEBUG] Host connection. (Session: 118107)
+2020-01-26 18:14:14.2459 [DEBUG] Validating model...
+2020-01-26 18:14:14.5606 [DEBUG] Model validated
+2020-01-26 18:14:14.5616 [DEBUG] Authenticating with server...
+2020-01-26 18:14:14.8299 [DEBUG] Connected to room. (118107:SceneFusion:SceneFusion)
+2020-01-26 18:14:14.8478 [INFO] Connected to server.
+2020-01-26 18:14:14.8488 [DEBUG] OS : Microsoft Windows NT 10.0.18362.0
+2020-01-26 18:14:14.8488 [DEBUG] Unity Version : 2019.2.19f1
+2020-01-26 18:14:14.8488 [DEBUG] Pro License : False
+2020-01-26 18:14:14.8488 [DEBUG] Platform : WindowsEditor
+2020-01-26 18:14:14.8498 [DEBUG] Build Target : StandaloneWindows64
+2020-01-26 18:14:14.8498 [DEBUG] Scene Fusion version : 1.8.6
+2020-01-26 18:14:14.8498 [DEBUG] Scene Fusion client build : 0
+2020-01-26 18:14:14.8498 [DEBUG] User : Sammo351@gmail.com
+2020-01-26 18:14:15.3530 [DEBUG] frame size: 50882
+2020-01-26 18:14:17.2001 [DEBUG] Tier: Scene Fusion Free, Permissions: 00000200
+2020-01-26 18:14:17.2001 [DEBUG] User Permissions: FFFFFFFF
+2020-01-26 18:14:17.3008 [DEBUG] No stand-in for UnityEngine.LocalizationAsset
+2020-01-26 18:14:17.3008 [DEBUG] No stand-in for UnityEngine.ProceduralMaterial
+2020-01-26 18:14:17.3008 [DEBUG] No stand-in for UnityEngine.ProceduralTexture
+2020-01-26 18:14:17.3008 [DEBUG] No stand-in for UnityEngine.TerrainLayer
+2020-01-26 18:14:17.3008 [DEBUG] No stand-in for UnityEngine.Experimental.VFX.VisualEffectAsset
+2020-01-26 18:14:26.9478 [DEBUG] Play mode: False
+2020-01-26 18:14:28.6819 [DEBUG] Loading complete
+2020-01-26 18:15:02.6558 [WARNING] Cannot sync '_Directional light : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:15:02.6568 [WARNING] Cannot sync '_Directional light : Shadow Data Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:15:17.0160 [WARNING] Cannot sync 'Spot Light (3) : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:15:39.7086 [WARNING] Cannot sync 'Spot Light : Shadow Map Render Texture' (RenderTexture) because it is not in Unity's asset database.
+2020-01-26 18:17:54.2938 [DEBUG] Disconnecting from room (118107:SceneFusion:SceneFusion)
+2020-01-26 18:17:54.3333 [INFO] Disconnected from server.
+2020-01-26 18:17:54.3333 [DEBUG] Disconnect. (Duration: -2933)
