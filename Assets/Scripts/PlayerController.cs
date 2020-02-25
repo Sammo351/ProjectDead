@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     public float MaxAngleBeforeTurning = 45f;
     public Transform WeaponHolder;
+    private int _playerIndex=0;
+    private Color _playerColor=Color.white;
 
     private Animator _animator;
     private Rigidbody _rigidbody;
@@ -25,6 +27,11 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
+        
+        //Sets players index and increases the index for next player
+        PlayerIndex = GLOBAL.AddPlayerController(this);
+        //gets the relevent color from players index
+        PlayerColor = GLOBAL._PlayerColors[PlayerIndex];
     }
 
     public void Update()
@@ -32,7 +39,15 @@ public class PlayerController : MonoBehaviour
         HandleAiming();
         HandleMovement();
     }
-
+    public int PlayerIndex
+    {
+        get{return _playerIndex;}
+        set{_playerIndex = value;}
+    }
+    public Color PlayerColor{
+        get{return _playerColor;}
+        set{_playerColor = value;}
+    }
     public void HandleMovement()
     {
         Vector2 inputVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -109,5 +124,9 @@ public class PlayerController : MonoBehaviour
     //    input = playerInput;
     //}
 
+void OnDrawGizmos()
+{
+    Gizmos.DrawLine(transform.position,transform.position+transform.forward*5);
+}
 
 }

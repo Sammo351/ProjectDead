@@ -24,6 +24,7 @@ namespace Mobs
 
         public void OnCollisionEnter(Collision collision)
         {
+        
             if (OnCollidedWith != null)
             {
                 if (collision.gameObject.GetComponent<Entity>())
