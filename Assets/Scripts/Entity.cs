@@ -1,18 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace Mobs
-{
-
-
     public class Entity : MonoBehaviour
     {
 
         int health;
         public int maxHealth;
         public float TimeFactor = 1f;
-
 
         public SimpleEntityEvent OnDeathEvent;
 
@@ -68,7 +62,7 @@ namespace Mobs
             }
         }
 
-        public virtual void OnDamage(int damageAmount,/* DamageType damageType,*/ Entity attacker)
+        public virtual void OnDamage(int damageAmount, DamageType damageType, Entity attacker)
         {
             Debug.Log(attacker);
             if (Health <= 0 && attacker != null)
@@ -85,6 +79,10 @@ namespace Mobs
                 }
             }
         }
+        public virtual void OnHeal(int healAmount)
+        {
+            Health +=healAmount;
+        }
     }
 
     public delegate void SimpleEvent();
@@ -93,4 +91,3 @@ namespace Mobs
     public delegate void EntityGameObjectEvent(Entity entity, GameObject gameObject);
     public delegate void EntityTriggerEvent(Entity entity, Trigger trigger);
 
-}
