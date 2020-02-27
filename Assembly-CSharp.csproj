@@ -45,18 +45,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Player Input.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Entity.cs" />
      <Compile Include="Assets\Scripts\EntityHelper.cs" />
      <Compile Include="Assets\Scripts\EntityTargetable.cs" />
      <Compile Include="Assets\Scripts\FloatExtensions.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Test.cs.cs" />
      <Compile Include="Assets\Scripts\Trigger.cs" />
      <Compile Include="Assets\Scripts\Utilities\Vector2Extensions.cs" />
      <Compile Include="Assets\Scripts\Utilities\Vector3Extensions.cs" />
      <Compile Include="Assets\Scripts\Weapons &amp; Projectiles\Weapon.cs" />
      <Compile Include="Assets\Scripts\WorldHelper.cs" />
      <Compile Include="Assets\Scripts\Zombie.cs" />
+     <None Include="Assets\Scripts\yo.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
