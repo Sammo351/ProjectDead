@@ -2,3 +2,10 @@
 
 1. Write Sick Code
 2. Profit
+
+
+Possible upgrades for weapons
+- Levels
+    1.Auto reload (unlock)
+    2.Reload speed  +5%
+    3. Reload speed +5% ....

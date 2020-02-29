@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 1763491066}
   - component: {fileID: 1763491065}
   - component: {fileID: 1763491064}
+  - component: {fileID: 1763491070}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -345,6 +346,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1763491070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763491063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a5601609700124cba59a9097561f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 0}
+  SpawnPoint: {fileID: 0}
+  ammo: 0
+  maxAmmo: 0
+  clipSize: 0
+  reloadTime: 0
+  currentClip: 0
+  fireRate: 0
+  automatic: 0
 --- !u!1 &2086490912
 GameObject:
   m_ObjectHideFlags: 0
