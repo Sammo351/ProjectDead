@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -30,6 +30,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveVectorInput;
     private Vector2 _aimVectorInput;
     PlayerInput _playerInput;
+    
+    public PlayerControls playerControls;
+    
+    void Awake()
+    {
+        playerControls = new PlayerControls();
+    }
 
     public void Start()
     {
@@ -39,10 +46,27 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
 
+        
+
         //Sets players index and increases the index for next player
         PlayerIndex = GLOBAL.AddPlayerController(this);
         //gets the relevent color from players index
         PlayerColor = GLOBAL._PlayerColors[PlayerIndex];
+    }
+
+    void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
+    private void OnShoot(InputAction.CallbackContext obj)
+    {
+        throw new NotImplementedException();
     }
 
     public void FixedUpdate()
@@ -51,10 +75,12 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
     }
 
+ 
 
     public void OnMovement(InputValue value)
     {
         this._moveVectorInput = value.Get<Vector2>();
+        
     }
 
     public void OnAimVector(InputValue value)

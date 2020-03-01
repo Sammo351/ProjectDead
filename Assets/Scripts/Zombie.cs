@@ -22,14 +22,12 @@ public class Zombie : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (GetComponent<Entity> ().Health > 0) {
-            animator.SetFloat ("speed", agent.desiredVelocity.magnitude);
             agent.SetDestination (Target.position);
         } else {
             //agent.isStopped = true;
             agent.enabled = false;
             GetComponent<BoxCollider> ().center = Vector3.up * 0.9f;
             GetComponent<BoxCollider> ().size = Vector3.one * 0.1f;
-
         }
     }
 }
