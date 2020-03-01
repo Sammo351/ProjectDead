@@ -68,6 +68,19 @@ public class Entity : MonoBehaviour {
         Health += healAmount;
     }
     public virtual bool CanDamage () { return true; } public virtual bool CanHeal () { return true; }
+    public virtual bool OnPickUpDrop (Drop drop) {
+        //do stuff
+        switch (drop.dropType) {
+            case DropType.Ammo:
+                //do stuff;
+                break;
+            case DropType.Health:
+                int before = Health;
+                OnHeal (drop.value);
+                return Health > before;
+        }
+        return false;
+    }
 
 }
 

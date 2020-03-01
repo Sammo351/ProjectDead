@@ -4,6 +4,9 @@
 2. Profit
 
 
+
+- Move ammo to inventory so multiple weapons can share the players ammo
+
 Possible upgrades for weapons
 - Levels
     1.Auto reload (unlock)

@@ -8,9 +8,9 @@ public class Weapon : MonoBehaviour {
     public int ammo, maxAmmo, clipSize, reloadTime, currentClip;
     public float fireRate; // how shots per second
     float inverseFireRate; // how many seconds per shot
-    bool startFiring = false, reloading = false;
+    bool reloading = false;
     float cooldown = 0; // how long until can fire next shot automatically 
-
+    bool _isPrimary = false;
     void Start () {
         QuickSet ();
     }
@@ -25,6 +25,13 @@ public class Weapon : MonoBehaviour {
         inverseFireRate = 1 / fireRate;
     }
     void Update () {
+
+        if (IsPrimary) {
+            OnInput ();
+        }
+
+    }
+    public void OnInput () {
         if (Input.GetMouseButtonDown (0)) {
             //Debug.Log ("clicked");
             PullTrigger ();
@@ -40,6 +47,11 @@ public class Weapon : MonoBehaviour {
         if (Input.GetKey (KeyCode.R)) {
             Reload ();
         }
+    }
+    //Is this weapon in players hand
+    public virtual bool IsPrimary {
+        get { return _isPrimary; }
+        set { _isPrimary = value; }
     }
     //Electric/ flamethrower would'nt need reload
     // Style ammo UI differently based on this bool
