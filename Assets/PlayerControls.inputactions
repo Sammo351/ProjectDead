@@ -1,23 +1,42 @@
 {
-    "name": "Player Input",
+    "name": "PlayerControls",
     "maps": [
         {
-            "name": "Player Input",
-            "id": "695b55fe-8c54-45d1-a705-444b4348ee9f",
+            "name": "Player Movement",
+            "id": "16da91f8-735a-4651-af95-0322d45da3cf",
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "Value",
-                    "id": "d6c9661c-aecf-434b-8ce7-eb355fafd0f0",
+                    "type": "PassThrough",
+                    "id": "3c77734f-fb11-4407-b550-a5257174e227",
                     "expectedControlType": "Vector2",
-                    "processors": "Clamp(min=-1,max=1)",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AimVector",
+                    "type": "Value",
+                    "id": "6f8070a9-e21f-46cc-bf40-12163b8c2f8d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
                     "interactions": ""
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "b0685fde-96c3-4575-96cc-836ecee91b20",
+                    "name": "Keyboard",
+                    "id": "8a69a3bc-fac2-4f1b-a429-54187130effc",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "da0f62a1-f5cd-4552-a7ae-198a0dda15bf",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -28,7 +47,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "b9f1814b-dd06-4d94-8214-ff2b99d1c9aa",
+                    "id": "b0d7bf4b-be08-4e92-8a41-50743eb2c412",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -39,7 +58,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "247bbb57-8dcc-4a13-a950-4d1e6b92dadf",
+                    "id": "b3d0eebc-399e-4a6d-b839-57a9f4d467b7",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -50,7 +69,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "ff6f275c-25db-4875-a057-c585a1d8698f",
+                    "id": "32fcde3d-9e2a-43cd-988e-c25e92c8b9ac",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -61,7 +80,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "8e359f69-44ba-406b-a603-e6dc09fbdabb",
+                    "id": "2dfde19f-1a42-4837-a964-ffbc3a966167",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -72,12 +91,34 @@
                 },
                 {
                     "name": "",
-                    "id": "1b4c7dc4-c597-4caa-8a99-e5cceee13116",
-                    "path": "<DualShockGamepad>/leftStick",
+                    "id": "2dcc1d51-d721-45d6-aff0-57fdb2b53932",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "GamePad",
                     "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71c5f603-d14e-4bff-81ea-c16a164f8ff3",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "AimVector",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60eb493a-764f-4472-9d41-2feeb4ff5edb",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "GamePad",
+                    "action": "AimVector",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -102,12 +143,12 @@
             ]
         },
         {
-            "name": "Controller",
-            "bindingGroup": "Controller",
+            "name": "GamePad",
+            "bindingGroup": "GamePad",
             "devices": [
                 {
-                    "devicePath": "<DualShockGamepad>",
-                    "isOptional": true,
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
                     "isOR": false
                 }
             ]
