@@ -25,9 +25,9 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "0e295fae-a155-4b41-89f9-9711a66e9b32",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Reload",
