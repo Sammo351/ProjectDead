@@ -1126,6 +1126,8 @@ GameObject:
   - component: {fileID: 2067077079}
   - component: {fileID: 2067077078}
   - component: {fileID: 2067077077}
+  - component: {fileID: 2067077082}
+  - component: {fileID: 2067077081}
   - component: {fileID: 2067077080}
   m_Layer: 0
   m_Name: Player
@@ -1170,7 +1172,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!4 &2067077079
 Transform:
@@ -1213,17 +1215,41 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3c77734f-fb11-4407-b550-a5257174e227
-    m_ActionName: Player Movement/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/leftStick]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6f8070a9-e21f-46cc-bf40-12163b8c2f8d
-    m_ActionName: Player Movement/Aim Vector[/Mouse/position,/DualShock4GamepadHID/rightStick]
+  m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1384968799}
+--- !u!114 &2067077081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067077076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a5601609700124cba59a9097561f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 0}
+  SpawnPoint: {fileID: 1005957797}
+  ammo: 0
+  maxAmmo: 0
+  clipSize: 0
+  reloadTime: 0
+  currentClip: 0
+  fireRate: 0
+--- !u!114 &2067077082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067077076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2803abfc108ec9418dc585d67e73203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
