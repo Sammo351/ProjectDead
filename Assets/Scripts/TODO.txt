@@ -5,10 +5,25 @@
 
 
 
-- Move ammo to inventory so multiple weapons can share the players ammo
+- [DONE] Move ammo to inventory so multiple weapons can share the players ammo.
+- Make all colliders in the world at least as tall as weaponHolder height, to ensure linecast hits.
+
+
+
+
+
+
 
 Possible upgrades for weapons
 - Levels
     1.Auto reload (unlock)
     2.Reload speed  +5%
     3. Reload speed +5% ....
+
+
+
+
+
+    IDEAS
+
+    - A dash ability - removes collision with zombies

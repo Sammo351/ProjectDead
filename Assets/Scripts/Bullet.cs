@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    private void OnTriggerEnter (Collider collision) {
-        var en = collision.gameObject.GetComponent<Entity> ();
+    public float lifespan = 2f;
+    public Entity owner;
+    [ReadOnly, SerializeField] float life = 0;
+    void Update () {
+        life += Time.deltaTime;
+        if (life >= lifespan) {
+            Destroy (gameObject);
+        }
+    }
+    public virtual void OnCollisionEnter (Collision collision) {
+        var en = collision.collider.gameObject.GetComponent<Entity> ();
         if (en) {
             en.Health -= 1;
             Destroy (this.gameObject);
         }
     }
+
 }

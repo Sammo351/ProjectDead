@@ -3,11 +3,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
-{
+[RequireComponent (typeof (Rigidbody))]
+public class PlayerController : MonoBehaviour {
     public float MaxAngleBeforeTurning = 45f;
-    public Transform WeaponHolder;
+    /*   public Transform WeaponHolder; */
     private int _playerIndex = 0;
     private Color _playerColor = Color.white;
 
@@ -30,150 +29,123 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveVectorInput;
     private Vector2 _aimVectorInput;
     PlayerInput _playerInput;
-    
+
     public PlayerControls playerControls;
-    
-    void Awake()
-    {
-        playerControls = new PlayerControls();
+
+    void Awake () {
+        playerControls = new PlayerControls ();
     }
 
-    public void Start()
-    {
-        _playerInput = GetComponent<PlayerInput>();
+    public void Start () {
+        _playerInput = GetComponent<PlayerInput> ();
         currentStamina = maxStamina;
 
-        _animator = GetComponentInChildren<Animator>();
-        _rigidbody = GetComponent<Rigidbody>();
-
-        
+        _animator = GetComponentInChildren<Animator> ();
+        _rigidbody = GetComponent<Rigidbody> ();
 
         //Sets players index and increases the index for next player
-        PlayerIndex = GLOBAL.AddPlayerController(this);
+        PlayerIndex = GLOBAL.AddPlayerController (this);
         //gets the relevent color from players index
         PlayerColor = GLOBAL._PlayerColors[PlayerIndex];
     }
 
-    void OnEnable()
-    {
-        playerControls.Enable();
+    void OnEnable () {
+        playerControls.Enable ();
     }
 
-    void OnDisable()
-    {
-        playerControls.Disable();
+    void OnDisable () {
+        playerControls.Disable ();
     }
 
-    private void OnShoot(InputAction.CallbackContext obj)
-    {
-        throw new NotImplementedException();
+    private void OnShoot (InputAction.CallbackContext obj) {
+        throw new NotImplementedException ();
     }
 
-    public void FixedUpdate()
-    {
-        HandleAiming();
-        HandleMovement();
+    public void FixedUpdate () {
+        HandleAiming ();
+        HandleMovement ();
     }
 
- 
+    public void OnMovement (InputValue value) {
+        this._moveVectorInput = value.Get<Vector2> ();
 
-    public void OnMovement(InputValue value)
-    {
-        this._moveVectorInput = value.Get<Vector2>();
-        
     }
 
-    public void OnAimVector(InputValue value)
-    {
-        this._aimVectorInput = value.Get<Vector2>();
+    public void OnAimVector (InputValue value) {
+        this._aimVectorInput = value.Get<Vector2> ();
     }
 
-    void OnControlsChanged(PlayerInput input)
-    {
+    void OnControlsChanged (PlayerInput input) {
         this._playerInput = input;
     }
 
-
-    public int PlayerIndex
-    {
+    public int PlayerIndex {
         get { return _playerIndex; }
         set { _playerIndex = value; }
     }
-    public Color PlayerColor
-    {
+    public Color PlayerColor {
         get { return _playerColor; }
         set { _playerColor = value; }
     }
 
-    public void HandleMovement()
-    {
+    public void HandleMovement () {
         Vector2 inputVec = _moveVectorInput;
 
         float moveX = inputVec.x;
         float moveY = inputVec.y;
         //Might need to use inputVec.y.DeadZone(0.1) to eliminate controller wobbliness
 
-        Vector3 moveVec = new Vector3(moveX, 0f, moveY);
-        moveVec = Camera.main.transform.TransformDirection(inputVec);
+        Vector3 moveVec = new Vector3 (moveX, 0f, moveY);
+        moveVec = Camera.main.transform.TransformDirection (inputVec);
         moveVec.y = 0;
-        moveVec.Normalize();
+        moveVec.Normalize ();
 
-        Vector3 localizedInput = transform.InverseTransformDirection(moveVec);
+        Vector3 localizedInput = transform.InverseTransformDirection (moveVec);
 
-        if (moveVec.sqrMagnitude > 0)
-        {
+        if (moveVec.sqrMagnitude > 0) {
             //isSprinting = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0;
             if (isSprinting)
                 currentStamina -= Time.fixedDeltaTime;
-        }
-        else
-        {
+        } else {
             isSprinting = false;
-            if (currentStamina < maxStamina)
-            {
+            if (currentStamina < maxStamina) {
                 currentStamina += Time.fixedDeltaTime;
-                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+                currentStamina = Mathf.Clamp (currentStamina, 0, maxStamina);
             }
         }
 
-        _rigidbody.MovePosition(transform.position + (moveVec * GetMoveSpeed() * Time.fixedDeltaTime));
+        _rigidbody.MovePosition (transform.position + (moveVec * GetMoveSpeed () * Time.fixedDeltaTime));
     }
 
-    public float GetMoveSpeed()
-    {
+    public float GetMoveSpeed () {
         return isSprinting ? runSpeed : moveSpeed;
     }
 
-
-    public void HandleAiming()
-    {
-        if (_playerInput.currentControlScheme == "Keyboard")
-        {
-            Ray ray = Camera.main.ScreenPointToRay(_aimVectorInput);
-            Plane plane = new Plane(Vector3.up, Vector3.zero);
+    public void HandleAiming () {
+        if (_playerInput == null) {
+            return;
+        }
+        if (_playerInput.currentControlScheme == "Keyboard") {
+            Ray ray = Camera.main.ScreenPointToRay (_aimVectorInput);
+            Plane plane = new Plane (Vector3.up, Vector3.zero);
 
             float distance;
-            if (plane.Raycast(ray, out distance))
-            {
-                Vector3 target = ray.GetPoint(distance);
+            if (plane.Raycast (ray, out distance)) {
+                Vector3 target = ray.GetPoint (distance);
                 Vector3 direction = target - transform.position;
                 transform.forward = direction;
                 aimVector = direction;
             }
-        }
-        else
-        {
-            Vector3 aim = new Vector3(_aimVectorInput.x, 0, _aimVectorInput.y);
-            if (aim.sqrMagnitude > 0)
-            {
-                Vector3 direction = Camera.main.transform.TransformDirection(_aimVectorInput);
+        } else {
+            Vector3 aim = new Vector3 (_aimVectorInput.x, 0, _aimVectorInput.y);
+            if (aim.sqrMagnitude > 0) {
+                Vector3 direction = Camera.main.transform.TransformDirection (_aimVectorInput);
                 direction.y = 0;
                 transform.forward = direction;
                 aimVector = direction;
             }
 
         }
-
 
         //if (UseAimAssist)
         //{
@@ -206,19 +178,17 @@ public class PlayerController : MonoBehaviour
     //    input = playerInput;
     //}
 
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(WeaponHolder.position, WeaponHolder.position + transform.forward * 5);
+    void OnDrawGizmos () {
+        //Gizmos.DrawLine(WeaponHolder.position, WeaponHolder.position + transform.forward * 5);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine (transform.position, transform.position + transform.forward * 5);
     }
-
 
     //DEBUG STUFF
-    void OnGUI()
-    {
-        GUILayout.Label("Player Input: " + _moveVectorInput);
-        GUILayout.Label("Player Stamina: " + currentStamina);
-        GUILayout.Label("Input: " + _playerInput.currentControlScheme);
+    void OnGUI () {
+        //GUILayout.Label ("Player Input: " + _moveVectorInput);
+        //GUILayout.Label ("Player Stamina: " + currentStamina);
+        //GUILayout.Label ("Input: " + _playerInput.currentControlScheme);
     }
-
 
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Entity : MonoBehaviour {
+public class Entity : MonoBehaviour, ICanPickUpItem, IDamageable, IHealable {
 
     int health;
     public int maxHealth;
@@ -51,8 +51,8 @@ public class Entity : MonoBehaviour {
         }
     }
 
-    //Damage System Integration
-    public virtual void OnDamage (Entity attacker, int damageAmount, DamageType damageType) {
+    public void OnDamaged (Entity attacker, int damageAmount, DamageType damageType) {
+        health -= damageAmount;
         Debug.Log (attacker);
         if (Health <= 0 && attacker != null) {
             if (OnEntityKilled != null) {
@@ -67,19 +67,21 @@ public class Entity : MonoBehaviour {
     public virtual void OnHeal (int healAmount) {
         Health += healAmount;
     }
-    public virtual bool CanDamage () { return true; } public virtual bool CanHeal () { return true; }
-    public virtual bool OnPickUpDrop (Drop drop) {
-        //do stuff
+
+    public bool OnPickUpItem (Drop drop) {
+        Debug.Log ("Picked up " + drop.dropType.ToString ());
         switch (drop.dropType) {
             case DropType.Ammo:
-                //do stuff;
+                GetComponent<Inventory> ().GetPrimaryWeapon ().OnPickUpAmmo (drop.value);
                 break;
             case DropType.Health:
                 int before = Health;
                 OnHeal (drop.value);
                 return Health > before;
+            case DropType.Perk:
+                break;
         }
-        return false;
+        return true;
     }
 
 }
