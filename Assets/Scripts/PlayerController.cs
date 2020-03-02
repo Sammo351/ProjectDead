@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour {
         PlayerColor = GLOBAL._PlayerColors[PlayerIndex];
     }
 
+    void Update () {
+        if (Input.GetKeyDown (KeyCode.F)) {
+            AttemptInteraction ();
+        }
+    }
     void OnEnable () {
         playerControls.Enable ();
     }
@@ -120,7 +125,6 @@ public class PlayerController : MonoBehaviour {
     public float GetMoveSpeed () {
         return isSprinting ? runSpeed : moveSpeed;
     }
-
     public void HandleAiming () {
         if (_playerInput == null) {
             return;
@@ -178,6 +182,17 @@ public class PlayerController : MonoBehaviour {
     //    input = playerInput;
     //}
 
+    void AttemptInteraction () {
+        Debug.Log ("interacting");
+        foreach (Interactable ic in GameObject.FindObjectsOfType<Interactable> ()) {
+
+            float distance = Vector3.Distance (transform.position, ic.transform.position);
+            if (distance <= ic.InteractRange ()) {
+                Debug.Log ("With " + ic);
+                ic.OnInteraction ();
+            }
+        }
+    }
     void OnDrawGizmos () {
         //Gizmos.DrawLine(WeaponHolder.position, WeaponHolder.position + transform.forward * 5);
         Gizmos.color = Color.blue;

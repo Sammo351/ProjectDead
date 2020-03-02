@@ -4,6 +4,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour, ICanPickUpItem, IDamageable, IHealable {
 
     int health;
+    public int xpValue;
     public int maxHealth;
     public float TimeFactor = 1f;
 
@@ -58,6 +59,8 @@ public class Entity : MonoBehaviour, ICanPickUpItem, IDamageable, IHealable {
             if (OnEntityKilled != null) {
                 Debug.Log ("Not even being damaged..");
                 OnEntityKilled (this, attacker);
+                XP.Give (xpValue);
+                Destroy (gameObject);
                 Debug.Log ("MEEEE DEAD");
             } else {
                 Debug.Log ("Delegate is empty?");

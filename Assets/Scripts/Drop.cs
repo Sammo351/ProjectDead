@@ -54,4 +54,4 @@ public class Drop : MonoBehaviour {
 
 }
 
-public enum DropType { Ammo, Health, Perk }
+public enum DropType { Ammo, Health, Perk, XP }

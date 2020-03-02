@@ -4,6 +4,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
     [SerializeField]
     private int _ammo = 90;
+    private int _xp;
     void Start () {
         LoadWeapons ();
     }
@@ -64,6 +65,10 @@ public class Inventory : MonoBehaviour {
         return false;
     }
     public int Ammo { get { return _ammo; } set { _ammo = value; } }
+    public int XP {
+        get { return _xp; }
+        set { _xp = value; _xp = Mathf.Max (_xp, 0); }
+    }
 
 }
 public enum AmmoType { Energy }
