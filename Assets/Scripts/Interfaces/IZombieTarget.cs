@@ -2,7 +2,4 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable {
-
-    void OnDamaged (DamagePacket packet);
-}
+public interface IZombieTarget { }

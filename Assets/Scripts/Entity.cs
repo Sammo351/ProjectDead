@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Entity : MonoBehaviour, ICanPickUpItem, IDamageable, IHealable {
+public class Entity : MonoBehaviour {
 
     int health;
     public int xpValue;
@@ -50,41 +50,6 @@ public class Entity : MonoBehaviour, ICanPickUpItem, IDamageable, IHealable {
             if (isAlive && health <= 0 && OnDeathEvent != null)
                 OnDeathEvent (this);
         }
-    }
-
-    public void OnDamaged (Entity attacker, int damageAmount, DamageType damageType) {
-        health -= damageAmount;
-        Debug.Log (attacker);
-        if (Health <= 0 && attacker != null) {
-            if (OnEntityKilled != null) {
-                Debug.Log ("Not even being damaged..");
-                OnEntityKilled (this, attacker);
-                XP.Give (xpValue);
-                Destroy (gameObject);
-                Debug.Log ("MEEEE DEAD");
-            } else {
-                Debug.Log ("Delegate is empty?");
-            }
-        }
-    }
-    public virtual void OnHeal (int healAmount) {
-        Health += healAmount;
-    }
-
-    public bool OnPickUpItem (Drop drop) {
-        Debug.Log ("Picked up " + drop.dropType.ToString ());
-        switch (drop.dropType) {
-            case DropType.Ammo:
-                GetComponent<Inventory> ().GetPrimaryWeapon ().OnPickUpAmmo (drop.value);
-                break;
-            case DropType.Health:
-                int before = Health;
-                OnHeal (drop.value);
-                return Health > before;
-            case DropType.Perk:
-                break;
-        }
-        return true;
     }
 
 }

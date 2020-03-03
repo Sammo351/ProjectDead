@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Zombie : MonoBehaviour {
-    public NavMeshAgent agent;
+public class Zombie : Entity, IDamageable, IShootable {
+
     public Transform Target;
     Animator animator;
 
     void Start () {
         animator = GetComponent<Animator> ();
-        agent = GetComponent<NavMeshAgent> ();
+
         GetComponent<Entity> ().OnDeathEvent += EntityDied;
+        GetComponent<BoxCollider> ().center = Vector3.up * 0.9f;
+        GetComponent<BoxCollider> ().size = Vector3.one * 0.1f;
     }
 
     private void EntityDied (Entity entity) {
@@ -21,13 +23,26 @@ public class Zombie : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (GetComponent<Entity> ().Health > 0) {
-            agent.SetDestination (Target.position);
-        } else {
-            //agent.isStopped = true;
-            agent.enabled = false;
-            GetComponent<BoxCollider> ().center = Vector3.up * 0.9f;
-            GetComponent<BoxCollider> ().size = Vector3.one * 0.1f;
+
+    }
+    public void OnDamaged (DamagePacket packet) {
+        Health -= packet.damage;
+        Debug.Log (packet.attacker);
+        if (Health <= 0 && packet.attacker != null) {
+            if (OnEntityKilled != null) {
+                Debug.Log ("Not even being damaged..");
+                OnEntityKilled (this, packet.attacker);
+
+                Debug.Log ("MEEEE DEAD");
+            } else {
+                Debug.Log ("Delegate is empty?");
+            }
+            XP.Give (xpValue);
+            Destroy (gameObject);
         }
     }
+    public void OnShot (GameObject projectile, DamagePacket packet) {
+        OnDamaged (packet);
+    }
+
 }

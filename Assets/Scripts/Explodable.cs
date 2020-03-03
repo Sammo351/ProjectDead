@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-public class Explodable : MonoBehaviour, IDamageable {
+public class Explodable : MonoBehaviour, IDamageable, IShootable {
     // Start is called before the first frame update
-    public float damageRadius = 5f, maxDamage = 15, minDamage = 4;
+    public float damageRadius = 5f, maxDamage = 15, minDamage = 4, force = 15f;
     public int health = 0;
     void Start () {
 
@@ -28,35 +28,31 @@ public class Explodable : MonoBehaviour, IDamageable {
                 float distance = Vector3.Distance (g.transform.position, transform.position);
                 float p = Mathf.Clamp01 (distance / damageRadius);
                 float damage = p.Map (0, 1, maxDamage, minDamage);
-                id.OnDamaged (null, Mathf.RoundToInt (damage), DamageType.Blast);
+                id.OnDamaged (new DamagePacket (null, Mathf.RoundToInt (damage), DamageType.Blast));
 
             }
             if (g != null && g.GetComponent<Rigidbody> () != null) {
-                g.GetComponent<Rigidbody> ().AddExplosionForce (15f, transform.position, damageRadius, 1.2f, ForceMode.Impulse);
+                g.GetComponent<Rigidbody> ().AddExplosionForce (force, transform.position, damageRadius, 1.2f, ForceMode.Impulse);
             }
         }
         Destroy (gameObject);
 
     }
-    public void OnDamaged (Entity from, int value, DamageType type) {
-        health -= value;
+    public void OnDamaged (DamagePacket packet) {
+        health -= packet.damage;
         if (health <= 0) {
             Explode ();
         }
     }
-    void OnCollisionEnter (Collision collision) {
-        Collider col = collision.collider;
-        Debug.Log (col.gameObject);
-        Bullet b = col.GetComponent<Bullet> ();
-        if (b != null) {
-            OnDamaged (b.owner, 5, DamageType.Bullet);
-            Destroy (col.gameObject);
-        }
+
+    public void OnShot (GameObject projectile, DamagePacket packet) {
+        OnDamaged (packet);
+        Destroy (gameObject);
     }
 
     [ContextMenu ("Explode")]
     public void Damage () {
-        OnDamaged (null, 10, DamageType.Blast);
+        OnDamaged (new DamagePacket (null, 10, DamageType.Blast));
     }
     void OnDrawGizmos () { Handles.DrawWireDisc (transform.position, Vector3.up, damageRadius); }
 }

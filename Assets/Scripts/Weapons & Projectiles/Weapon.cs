@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
     public GameObject bullet;
     public Transform SpawnPoint;
+    public DamageType damageType = DamageType.Bullet;
     public int clipSize, currentClip;
     public float fireRate, reloadTime; // how shots per second
     float inverseFireRate; // how many seconds per shot
@@ -14,8 +15,9 @@ public class Weapon : MonoBehaviour {
     public string weaponName = "Pistol";
     [SerializeField]
     private bool _automatic = true;
-
+    public bool isSilent = false;
     public float damage, damageModifier, piercingModifier;
+
     /* piercingModifier = does it pass through zombies? */
 
     void Start () {
@@ -87,10 +89,14 @@ public class Weapon : MonoBehaviour {
     public void Fire () {
         //Debug.Log ("Bang");
         var go = Instantiate (bullet) as GameObject;
+        go.GetComponent<Bullet> ().damagePacket = new DamagePacket (GetComponent<Entity> (), (int) damage, damageType);
         go.GetComponent<Bullet> ().owner = GetComponent<Entity> ();
         go.transform.position = SpawnPoint.position;
         go.transform.forward = SpawnPoint.forward;
         go.GetComponent<Rigidbody> ().AddForce (go.transform.forward * 50, ForceMode.Impulse);
+        if (!isSilent) {
+            Senses.TriggerSoundAlert (transform.position);
+        }
     }
     public int Ammo {
         get { return GetComponent<Inventory> ().Ammo; }

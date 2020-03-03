@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 [RequireComponent (typeof (Rigidbody))]
-public class PlayerController : MonoBehaviour {
+public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, IZombieTarget {
     public float MaxAngleBeforeTurning = 45f;
     /*   public Transform WeaponHolder; */
     private int _playerIndex = 0;
@@ -67,8 +67,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void FixedUpdate () {
+
         HandleAiming ();
         HandleMovement ();
+
     }
 
     public void OnMovement (InputValue value) {
@@ -204,6 +206,42 @@ public class PlayerController : MonoBehaviour {
         //GUILayout.Label ("Player Input: " + _moveVectorInput);
         //GUILayout.Label ("Player Stamina: " + currentStamina);
         //GUILayout.Label ("Input: " + _playerInput.currentControlScheme);
+    }
+
+    public void OnDamaged (DamagePacket packet) {
+        Health -= packet.damage;
+        Debug.Log (packet.attacker);
+        if (Health <= 0 && packet.attacker != null) {
+            if (OnEntityKilled != null) {
+                Debug.Log ("Not even being damaged..");
+                OnEntityKilled (this, packet.attacker);
+
+                Debug.Log ("MEEEE DEAD");
+            } else {
+                Debug.Log ("Delegate is empty?");
+            }
+            XP.Give (xpValue);
+            //Destroy (gameObject);
+        }
+    }
+    public virtual void OnHeal (int healAmount) {
+        Health += healAmount;
+    }
+
+    public bool OnPickUpItem (Drop drop) {
+        Debug.Log ("Picked up " + drop.dropType.ToString ());
+        switch (drop.dropType) {
+            case DropType.Ammo:
+                GetComponent<Inventory> ().GetPrimaryWeapon ().OnPickUpAmmo (drop.value);
+                break;
+            case DropType.Health:
+                int before = Health;
+                OnHeal (drop.value);
+                return Health > before;
+            case DropType.Perk:
+                break;
+        }
+        return true;
     }
 
 }

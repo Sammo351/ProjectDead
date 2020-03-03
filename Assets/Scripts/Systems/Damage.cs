@@ -6,7 +6,7 @@ public static class Damage {
 
     public static void DamageEntity (Entity from, IDamageable obj, DamageType type, int val) {
         if (obj != null) {
-            obj.OnDamaged (from, val, type);
+            obj.OnDamaged (new DamagePacket (from, val, type));
         }
         //send to UI for effects (+10)
     }
@@ -18,3 +18,13 @@ public static class Damage {
 
 }
 public enum DamageType { Blast, Bullet, Fire }
+public struct DamagePacket {
+    public int damage;
+    public DamageType type;
+    public Entity attacker;
+    public DamagePacket (Entity _attacker, int _damage, DamageType _type) {
+        attacker = _attacker;
+        type = _type;
+        damage = _damage;
+    }
+}

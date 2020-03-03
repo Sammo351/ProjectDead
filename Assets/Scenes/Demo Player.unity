@@ -282,7 +282,7 @@ BoxCollider:
   m_GameObject: {fileID: 54592726}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -345,27 +345,27 @@ GameObject:
   - component: {fileID: 132050173}
   - component: {fileID: 132050172}
   - component: {fileID: 132050171}
+  - component: {fileID: 132050175}
   m_Layer: 0
   m_Name: Zombie Cube (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &132050171
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &132050171
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132050170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &132050172
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -400,7 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 132050172}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &132050174
 Transform:
@@ -417,6 +419,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132050175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132050170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &139148308
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,27 +447,27 @@ GameObject:
   - component: {fileID: 139148311}
   - component: {fileID: 139148310}
   - component: {fileID: 139148309}
+  - component: {fileID: 139148313}
   m_Layer: 0
   m_Name: Zombie Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &139148309
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &139148309
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139148308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &139148310
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -484,7 +502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 139148310}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &139148312
 Transform:
@@ -501,6 +521,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &139148313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139148308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &185957419
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +628,7 @@ Transform:
   m_LocalScale: {x: 0.12869, y: 10.230855, z: 0.12869}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &234092383
 GameObject:
@@ -1033,7 +1069,7 @@ BoxCollider:
   m_GameObject: {fileID: 499862783}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1375,27 +1411,27 @@ GameObject:
   - component: {fileID: 650495472}
   - component: {fileID: 650495471}
   - component: {fileID: 650495470}
+  - component: {fileID: 650495474}
   m_Layer: 0
   m_Name: Zombie Cube (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &650495470
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &650495470
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650495469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &650495471
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1430,7 +1466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 650495471}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &650495473
 Transform:
@@ -1447,6 +1485,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &650495474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650495469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &666077182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,6 +1594,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666077182}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &691179582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691179583}
+  m_Layer: 0
+  m_Name: Weapon Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &691179583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691179582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.704}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1005957797}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &703554486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,27 +1729,27 @@ GameObject:
   - component: {fileID: 706433061}
   - component: {fileID: 706433060}
   - component: {fileID: 706433059}
+  - component: {fileID: 706433063}
   m_Layer: 0
   m_Name: Zombie Cube (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &706433059
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &706433059
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706433058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &706433060
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1700,7 +1784,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 706433060}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &706433062
 Transform:
@@ -1717,6 +1803,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &706433063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706433058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &756899493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,7 +2088,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821000864
 GameObject:
@@ -2079,7 +2181,7 @@ Transform:
   m_LocalScale: {x: 0.12869, y: 1.9003812, z: 0.12869}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!1 &843353408
 GameObject:
@@ -2093,27 +2195,27 @@ GameObject:
   - component: {fileID: 843353411}
   - component: {fileID: 843353410}
   - component: {fileID: 843353409}
+  - component: {fileID: 843353413}
   m_Layer: 0
   m_Name: Zombie Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &843353409
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &843353409
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843353408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &843353410
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2148,7 +2250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 843353410}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &843353412
 Transform:
@@ -2165,6 +2269,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843353413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843353408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &941202870
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,27 +2297,27 @@ GameObject:
   - component: {fileID: 941202873}
   - component: {fileID: 941202872}
   - component: {fileID: 941202871}
+  - component: {fileID: 941202875}
   m_Layer: 0
   m_Name: Zombie Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &941202871
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &941202871
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941202870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &941202872
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2232,7 +2352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 941202872}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &941202874
 Transform:
@@ -2249,6 +2371,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &941202875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941202870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &958421475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,27 +2399,27 @@ GameObject:
   - component: {fileID: 958421478}
   - component: {fileID: 958421477}
   - component: {fileID: 958421476}
+  - component: {fileID: 958421480}
   m_Layer: 0
   m_Name: Zombie Cube (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &958421476
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &958421476
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958421475}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &958421477
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2316,7 +2454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 958421477}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &958421479
 Transform:
@@ -2333,6 +2473,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &958421480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958421475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &964161414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,13 +2594,15 @@ GameObject:
   - component: {fileID: 977651458}
   - component: {fileID: 977651457}
   - component: {fileID: 977651456}
+  - component: {fileID: 977651460}
+  - component: {fileID: 977651461}
   m_Layer: 0
   m_Name: Zombie Cube (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &977651456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,6 +2615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpValue: 0
   maxHealth: 5
   TimeFactor: 1
 --- !u!195 &977651457
@@ -2493,7 +2652,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 977651457}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &977651459
 Transform:
@@ -2508,8 +2669,37 @@ Transform:
   m_Children:
   - {fileID: 2032045143}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &977651460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977651455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &977651461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977651455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1005957796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,13 +2726,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005957796}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.1, y: 1.321, z: 0.473}
-  m_LocalScale: {x: 0.6511729, y: 0.1495, z: 0.1570378}
-  m_Children: []
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 1.321, z: 0.25}
+  m_LocalScale: {x: 0.1, y: 0.1495, z: 0.6}
+  m_Children:
+  - {fileID: 691179583}
   m_Father: {fileID: 2067077079}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1005957798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2552,7 +2743,7 @@ BoxCollider:
   m_GameObject: {fileID: 1005957796}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2615,27 +2806,27 @@ GameObject:
   - component: {fileID: 1005984416}
   - component: {fileID: 1005984415}
   - component: {fileID: 1005984414}
+  - component: {fileID: 1005984418}
   m_Layer: 0
   m_Name: Zombie Cube (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1005984414
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1005984414
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005984413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1005984415
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2670,7 +2861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1005984415}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1005984417
 Transform:
@@ -2687,6 +2880,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1005984418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005984413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1006748362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,27 +3034,27 @@ GameObject:
   - component: {fileID: 1030252671}
   - component: {fileID: 1030252670}
   - component: {fileID: 1030252669}
+  - component: {fileID: 1030252673}
   m_Layer: 0
   m_Name: Zombie Cube (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1030252669
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1030252669
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030252668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1030252670
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2880,7 +3089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1030252670}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1030252672
 Transform:
@@ -2890,13 +3101,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030252668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.559999, y: 0.123, z: -2.2399979}
+  m_LocalPosition: {x: 15.559999, y: 0.123, z: -0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2006841465}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1030252673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030252668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1053910676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,27 +3229,27 @@ GameObject:
   - component: {fileID: 1077640766}
   - component: {fileID: 1077640765}
   - component: {fileID: 1077640764}
+  - component: {fileID: 1077640768}
   m_Layer: 0
   m_Name: Zombie Cube (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1077640764
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1077640764
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077640763}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1077640765
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3057,7 +3284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1077640765}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1077640767
 Transform:
@@ -3074,6 +3303,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077640768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077640763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1081223189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,6 +3331,7 @@ GameObject:
   - component: {fileID: 1081223191}
   - component: {fileID: 1081223190}
   - component: {fileID: 1081223192}
+  - component: {fileID: 1081223194}
   m_Layer: 0
   m_Name: Zombie Cube
   m_TagString: Untagged
@@ -3127,22 +3373,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1081223190}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
---- !u!114 &1081223192
-MonoBehaviour:
+--- !u!65 &1081223192
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081223189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1081223193
 Transform:
   m_ObjectHideFlags: 0
@@ -3151,13 +3398,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081223189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.78, y: 0.123, z: 19.28}
+  m_LocalPosition: {x: 22.73, y: 0.123, z: 11.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 54592727}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1081223194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081223189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 107.23
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1084768807
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,7 +3545,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126213634
 GameObject:
@@ -3481,27 +3744,27 @@ GameObject:
   - component: {fileID: 1175107565}
   - component: {fileID: 1175107564}
   - component: {fileID: 1175107563}
+  - component: {fileID: 1175107567}
   m_Layer: 0
   m_Name: Zombie Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1175107563
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1175107563
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175107562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1175107564
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3536,7 +3799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1175107564}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1175107566
 Transform:
@@ -3553,6 +3818,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175107567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175107562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1181688242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,27 +4218,27 @@ GameObject:
   - component: {fileID: 1310943731}
   - component: {fileID: 1310943730}
   - component: {fileID: 1310943729}
+  - component: {fileID: 1310943733}
   m_Layer: 0
   m_Name: Zombie Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1310943729
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1310943729
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310943728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1310943730
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3992,7 +4273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1310943730}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1310943732
 Transform:
@@ -4009,6 +4292,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310943733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310943728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1381975999
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,27 +4512,27 @@ GameObject:
   - component: {fileID: 1391219182}
   - component: {fileID: 1391219181}
   - component: {fileID: 1391219180}
+  - component: {fileID: 1391219184}
   m_Layer: 0
   m_Name: Zombie Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1391219180
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1391219180
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391219179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1391219181
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4268,7 +4567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1391219181}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1391219183
 Transform:
@@ -4285,6 +4586,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1391219184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391219179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1434251518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,7 +4763,7 @@ Transform:
   - {fileID: 1647605819}
   - {fileID: 442732767}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493496121
 GameObject:
@@ -4460,27 +4777,27 @@ GameObject:
   - component: {fileID: 1493496124}
   - component: {fileID: 1493496123}
   - component: {fileID: 1493496122}
+  - component: {fileID: 1493496126}
   m_Layer: 0
   m_Name: Zombie Cube (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1493496122
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1493496122
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493496121}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1493496123
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4515,7 +4832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1493496123}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1493496125
 Transform:
@@ -4532,6 +4851,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1493496126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493496121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1497057898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,27 +4972,27 @@ GameObject:
   - component: {fileID: 1574039854}
   - component: {fileID: 1574039853}
   - component: {fileID: 1574039852}
+  - component: {fileID: 1574039856}
   m_Layer: 0
   m_Name: Zombie Cube (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1574039852
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1574039852
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574039851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1574039853
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4692,7 +5027,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1574039853}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1574039855
 Transform:
@@ -4709,6 +5046,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574039856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574039851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1601573505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,7 +5186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1647605815
 GameObject:
@@ -5126,27 +5479,27 @@ GameObject:
   - component: {fileID: 1769032890}
   - component: {fileID: 1769032889}
   - component: {fileID: 1769032888}
+  - component: {fileID: 1769032892}
   m_Layer: 0
   m_Name: Zombie Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1769032888
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1769032888
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769032887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1769032889
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5181,7 +5534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1769032889}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1769032891
 Transform:
@@ -5198,6 +5553,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1769032892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769032887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1770583546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5210,27 +5581,27 @@ GameObject:
   - component: {fileID: 1770583549}
   - component: {fileID: 1770583548}
   - component: {fileID: 1770583547}
+  - component: {fileID: 1770583551}
   m_Layer: 0
   m_Name: Zombie Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1770583547
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1770583547
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770583546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1770583548
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5265,7 +5636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1770583548}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1770583550
 Transform:
@@ -5282,6 +5655,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1770583551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770583546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1859274626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5294,27 +5683,27 @@ GameObject:
   - component: {fileID: 1859274629}
   - component: {fileID: 1859274628}
   - component: {fileID: 1859274627}
+  - component: {fileID: 1859274631}
   m_Layer: 0
   m_Name: Zombie Cube (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1859274627
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1859274627
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859274626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1859274628
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5349,7 +5738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1859274628}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1859274630
 Transform:
@@ -5366,6 +5757,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1859274631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859274626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1868106145
 GameObject:
   m_ObjectHideFlags: 0
@@ -5470,27 +5877,27 @@ GameObject:
   - component: {fileID: 1899518981}
   - component: {fileID: 1899518980}
   - component: {fileID: 1899518979}
+  - component: {fileID: 1899518983}
   m_Layer: 0
   m_Name: Zombie Cube (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1899518979
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1899518979
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899518978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1899518980
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5525,7 +5932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1899518980}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1899518982
 Transform:
@@ -5542,6 +5951,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899518983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899518978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1933891665
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,27 +6072,27 @@ GameObject:
   - component: {fileID: 1934586623}
   - component: {fileID: 1934586622}
   - component: {fileID: 1934586621}
+  - component: {fileID: 1934586625}
   m_Layer: 0
   m_Name: Zombie Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1934586621
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1934586621
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934586620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1934586622
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5702,7 +6127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1934586622}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1934586624
 Transform:
@@ -5719,6 +6146,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1934586625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934586620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &1948878941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6011,27 +6454,27 @@ GameObject:
   - component: {fileID: 1991729497}
   - component: {fileID: 1991729496}
   - component: {fileID: 1991729495}
+  - component: {fileID: 1991729499}
   m_Layer: 0
   m_Name: Zombie Cube (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1991729495
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &1991729495
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991729494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &1991729496
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6066,7 +6509,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1991729496}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &1991729498
 Transform:
@@ -6083,6 +6528,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1991729499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991729494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30
 --- !u!1 &2006841464
 GameObject:
   m_ObjectHideFlags: 0
@@ -6376,6 +6837,7 @@ GameObject:
   - component: {fileID: 2067077082}
   - component: {fileID: 2067077081}
   - component: {fileID: 2067077080}
+  - component: {fileID: 2067077083}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6395,8 +6857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1fb4745be0a734da79d163ca5b2f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   MaxAngleBeforeTurning: 45
-  WeaponHolder: {fileID: 1005957797}
   moveSpeed: 10
   runSpeed: 15
   UseAimAssist: 1
@@ -6429,7 +6893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067077076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.123, z: 0}
+  m_LocalPosition: {x: 0, y: 0.123, z: -1.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 499862784}
@@ -6482,14 +6946,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a5601609700124cba59a9097561f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 0}
-  SpawnPoint: {fileID: 1005957797}
-  ammo: 0
-  maxAmmo: 0
+  bullet: {fileID: 5249317610380579699, guid: 1197b0b81ac45794bb9383f75339ec06, type: 3}
+  SpawnPoint: {fileID: 691179583}
+  damageType: 1
   clipSize: 0
-  reloadTime: 0
   currentClip: 0
   fireRate: 0
+  reloadTime: 0
+  reloading: 0
+  weaponName: Pistol
+  _automatic: 1
+  isSilent: 0
+  damage: 0
+  damageModifier: 0
+  piercingModifier: 0
 --- !u!114 &2067077082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6502,6 +6972,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2803abfc108ec9418dc585d67e73203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ammo: 90
+--- !u!65 &2067077083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067077076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2139780608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,27 +6998,27 @@ GameObject:
   - component: {fileID: 2139780611}
   - component: {fileID: 2139780610}
   - component: {fileID: 2139780609}
+  - component: {fileID: 2139780613}
   m_Layer: 0
   m_Name: Zombie Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2139780609
-MonoBehaviour:
+  m_IsActive: 0
+--- !u!65 &2139780609
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139780608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad6646973817f64c8621699238c6959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  TimeFactor: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &2139780610
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6569,7 +7053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 2139780610}
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
   Target: {fileID: 2067077079}
 --- !u!4 &2139780612
 Transform:
@@ -6586,3 +7072,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139780613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139780608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchTime: 7
+  angleOfSightCone: 170
+  sightRange: 18
+  soundRange: 30

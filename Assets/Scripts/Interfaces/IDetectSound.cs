@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable {
-
-    void OnDamaged (DamagePacket packet);
+public interface IDetectSound {
+    void OnDetectSound (Vector3 position);
 }
