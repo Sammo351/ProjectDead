@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Zombie : Entity, IDamageable, IShootable {
 
-    public Transform Target;
+    //public Transform Target;
     Animator animator;
 
     void Start () {

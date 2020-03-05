@@ -50,7 +50,7 @@ public class AI : MonoBehaviour, IDetectSound, IDetectSight {
     Vector3? GetTargetLocation () {
         return targetTransform != null ? targetTransform.position : target;
     }
-    void SetTarget (Transform t, int priority) {
+    public void SetTarget (Transform t, int priority) {
         if (priority >= targetPriority) {
             targetPriority = priority;
             target = null;
@@ -58,7 +58,7 @@ public class AI : MonoBehaviour, IDetectSound, IDetectSight {
 
         }
     }
-    void SetTarget (Vector3 t, int priority) {
+    public void SetTarget (Vector3 t, int priority) {
         if (priority >= targetPriority) {
             target = t;
             targetTransform = null;
