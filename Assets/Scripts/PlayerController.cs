@@ -39,6 +39,7 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
     public void Start () {
         _playerInput = GetComponent<PlayerInput> ();
         currentStamina = maxStamina;
+        Health = maxHealth;
 
         _animator = GetComponentInChildren<Animator> ();
         _rigidbody = GetComponent<Rigidbody> ();
@@ -62,9 +63,6 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         playerControls.Disable ();
     }
 
-    private void OnShoot (InputAction.CallbackContext obj) {
-        throw new NotImplementedException ();
-    }
 
     public void FixedUpdate () {
 

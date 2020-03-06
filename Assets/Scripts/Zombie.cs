@@ -13,8 +13,8 @@ public class Zombie : Entity, IDamageable, IShootable {
         animator = GetComponent<Animator> ();
 
         GetComponent<Entity> ().OnDeathEvent += EntityDied;
-        GetComponent<BoxCollider> ().center = Vector3.up * 0.9f;
-        GetComponent<BoxCollider> ().size = Vector3.one * 0.1f;
+        // GetComponent<BoxCollider> ().center = Vector3.up * 0.9f;
+        // GetComponent<BoxCollider> ().size = Vector3.one * 0.1f;
     }
 
     private void EntityDied (Entity entity) {
@@ -27,15 +27,15 @@ public class Zombie : Entity, IDamageable, IShootable {
     }
     public void OnDamaged (DamagePacket packet) {
         Health -= packet.damage;
-        Debug.Log (packet.attacker);
+        //Debug.Log (packet.attacker);
         if (Health <= 0 && packet.attacker != null) {
             if (OnEntityKilled != null) {
-                Debug.Log ("Not even being damaged..");
+                //Debug.Log ("Not even being damaged..");
                 OnEntityKilled (this, packet.attacker);
 
-                Debug.Log ("MEEEE DEAD");
+                //Debug.Log ("MEEEE DEAD");
             } else {
-                Debug.Log ("Delegate is empty?");
+                //Debug.Log ("Delegate is empty?");
             }
             XP.Give (xpValue);
             Destroy (gameObject);

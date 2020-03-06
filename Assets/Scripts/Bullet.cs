@@ -15,14 +15,16 @@ public class Bullet : MonoBehaviour {
         }
     }
     public virtual void OnCollisionEnter (Collision collision) {
-        Debug.Log ("Bullet collided " + collision.collider.gameObject);
+        //Debug.Log ("Bullet collided " + collision.collider.gameObject);
         var en = collision.collider.gameObject.GetComponent<IShootable> ();
 
         if (collision.collider.gameObject.GetComponent<IShootable> () != null) {
-            Debug.Log ("Target is shootable");
+            //Debug.Log ("Target is shootable");
             collision.collider.gameObject.GetComponent<IShootable> ().OnShot (gameObject, damagePacket);
-            Destroy (this.gameObject);
+          
         }
+
+        Destroy(this.gameObject);
     }
 
 }
