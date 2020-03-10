@@ -34,6 +34,9 @@ public class Entity : MonoBehaviour {
         Initialise ();
     }
 
+    public virtual void OnEntityDeath (Entity entity) {
+
+    }
     public virtual void Initialise () {
         Health = maxHealth;
     }
@@ -47,8 +50,11 @@ public class Entity : MonoBehaviour {
         set {
             bool isAlive = health > 0;
             health = Mathf.Clamp (value, 0, maxHealth);
-            if (isAlive && health <= 0 && OnDeathEvent != null)
-                OnDeathEvent (this);
+            if (isAlive && health <= 0)
+                if (OnDeathEvent != null) {
+                    OnDeathEvent (this);
+                }
+            OnEntityDeath (this);
         }
     }
 

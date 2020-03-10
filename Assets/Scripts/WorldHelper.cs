@@ -17,7 +17,10 @@ public class WorldHelper : MonoBehaviour {
     public LayerMask ExplosionLayer;
 
     public static void AddExplosion (Vector3 point, float Radius, float Force, int damage, Entity attacker = null) {
-        GameObject g = GameObject.Instantiate (Instance.Explosion, point, Quaternion.identity);
+        if (Instance.Explosion != null) {
+            GameObject g = GameObject.Instantiate (Instance.Explosion, point, Quaternion.identity);
+            Destroy (g, 0.1f);
+        }
         RaycastHit[] hits = Physics.SphereCastAll (point, Radius, Vector2.one, Radius, Instance.ExplosionLayer);
         //FindObjectOfType<CameraShake>().ShakeCamera(1f, Time.deltaTime);
 
@@ -46,8 +49,6 @@ public class WorldHelper : MonoBehaviour {
         //}
 
         Instance.StartCoroutine (Instance.ApplyExplosiveForces (point, Radius, Force));
-
-        Destroy (g, 2);
 
     }
 
@@ -99,6 +100,9 @@ public class WorldHelper : MonoBehaviour {
         EntityTargetable target = filteredList[0];
         Debug.Log ("Found Target: " + target);
         return target;
+    }
+    public static bool LineOfSight (Vector3 origin, GameObject g2) {
+        return Physics.Linecast (origin, g2.transform.position, -1);
     }
 }
 

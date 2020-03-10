@@ -29,10 +29,14 @@ public class World : MonoBehaviour {
         public GameObject gameobject;
     }
     public static GameObject GetEnemyObject (Enemies enemy) {
-        return gameobjects.Where ((x) => x.enemy == enemy).Select ((x) => x.gameobject).ToArray () [0];
+        GameObject[] array = gameobjects.Where ((x) => x.enemy == enemy).Select ((x) => x.gameobject).ToArray ();
+        if (array != null && array.Length > 0) {
+            return array[0];
+        }
+        return null;
     }
 }
 
 [System.Flags]
-public enum Enemies { Basic = 0x1, Boomer = 0x2 }
+public enum Enemies { Basic = 0x1, Boomer = 0x2, Splitter = 0x4 }
 //public static Dictionary<string, Entity> nemies = new Dictionary<string, Entity>();

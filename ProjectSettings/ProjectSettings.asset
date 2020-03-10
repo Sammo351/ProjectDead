@@ -581,7 +581,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: AURA_IN_PROJECT;SCENE_FUSION;ODIN_INSPECTOR;SF_CINEMACHINE
+    1: AURA_IN_PROJECT;SCENE_FUSION;ODIN_INSPECTOR;SF_CINEMACHINE;AURA_IN_SCENEVIEW
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 1

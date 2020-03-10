@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486289172785997368}
-  - component: {fileID: 486289172785997366}
   - component: {fileID: 486289172785997367}
   - component: {fileID: 486289172785997369}
   - component: {fileID: 486289172785997371}
+  - component: {fileID: -1302786780768075555}
   m_Layer: 0
   m_Name: Boomer
   m_TagString: Untagged
@@ -35,22 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &486289172785997366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486289172785997364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 222960876647fa64c9f2a1575a19fcc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xpValue: 0
-  maxHealth: 0
-  TimeFactor: 1
-  Target: {fileID: 0}
 --- !u!195 &486289172785997367
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -102,6 +86,24 @@ MonoBehaviour:
   angleOfSightCone: 107.23
   sightRange: 18
   soundRange: 30
+--- !u!114 &-1302786780768075555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486289172785997364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06dd803b53b9594f967e30ea0a95bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpValue: 0
+  maxHealth: 0
+  TimeFactor: 1
+  rangeForAttack: 2.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!1 &486289173845904119
 GameObject:
   m_ObjectHideFlags: 0

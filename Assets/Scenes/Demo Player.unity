@@ -310,6 +310,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &132050174
 Transform:
   m_ObjectHideFlags: 0
@@ -337,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -411,6 +415,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &139148312
 Transform:
   m_ObjectHideFlags: 0
@@ -438,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -1183,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b30e00edcdd1094c8a64256b9e0ec91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: -1
+  enemies: 2
   destination: {x: -3.3613462, y: 0.01, z: 8.068197}
 --- !u!136 &327976155
 CapsuleCollider:
@@ -1694,7 +1702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b30e00edcdd1094c8a64256b9e0ec91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: -1
+  enemies: 2
   destination: {x: -3.625167, y: 0.01, z: -5.7868013}
 --- !u!136 &466740171
 CapsuleCollider:
@@ -2467,7 +2475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b30e00edcdd1094c8a64256b9e0ec91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: -1
+  enemies: 2
   destination: {x: 9.702665, y: 0.01, z: -2.2747192}
 --- !u!136 &630469178
 CapsuleCollider:
@@ -2614,6 +2622,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &650495473
 Transform:
   m_ObjectHideFlags: 0
@@ -2641,6 +2652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -2931,6 +2943,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &706433062
 Transform:
   m_ObjectHideFlags: 0
@@ -2958,6 +2973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -3233,6 +3249,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &781447635
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2741137811648485703, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: angleOfSightCone
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5350298e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485721, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: baseSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485724, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_Name
+      value: Basic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e84f01328d0ee4b479466afccc26c685, type: 3}
 --- !u!1 &821000864
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,6 +3491,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &843353412
 Transform:
   m_ObjectHideFlags: 0
@@ -3423,6 +3521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -3497,6 +3596,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &941202874
 Transform:
   m_ObjectHideFlags: 0
@@ -3524,6 +3626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -3598,6 +3701,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &958421479
 Transform:
   m_ObjectHideFlags: 0
@@ -3625,6 +3731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -3795,6 +3902,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &977651459
 Transform:
   m_ObjectHideFlags: 0
@@ -3835,6 +3945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -4003,6 +4114,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1005984417
 Transform:
   m_ObjectHideFlags: 0
@@ -4030,6 +4144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -4230,6 +4345,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1030252672
 Transform:
   m_ObjectHideFlags: 0
@@ -4257,6 +4375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -4497,6 +4616,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1077640767
 Transform:
   m_ObjectHideFlags: 0
@@ -4524,6 +4646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -4982,6 +5105,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1175107566
 Transform:
   m_ObjectHideFlags: 0
@@ -5009,6 +5135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -5382,6 +5509,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1310943732
 Transform:
   m_ObjectHideFlags: 0
@@ -5409,6 +5539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -5980,6 +6111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1444861599}
   - component: {fileID: 1444861600}
+  - component: {fileID: 1444861601}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -6020,7 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc95794ec083bf34fa45136000c6d0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemies: -1
+  _enemies: 3
   _gameobjects:
   - enemy: 1
     gameobject: {fileID: 2741137811648485724, guid: e84f01328d0ee4b479466afccc26c685,
@@ -6028,6 +6160,22 @@ MonoBehaviour:
   - enemy: 2
     gameobject: {fileID: 486289172785997364, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
       type: 3}
+--- !u!114 &1444861601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444861598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd620d4f95e2e804a842dd2d9c5e4c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Explosion: {fileID: 0}
+  ExplosionLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1493496121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6098,6 +6246,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1493496125
 Transform:
   m_ObjectHideFlags: 0
@@ -6125,6 +6276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -6563,6 +6715,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1574039855
 Transform:
   m_ObjectHideFlags: 0
@@ -6590,6 +6745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -7105,6 +7261,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1769032891
 Transform:
   m_ObjectHideFlags: 0
@@ -7132,6 +7291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -7206,6 +7366,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1770583550
 Transform:
   m_ObjectHideFlags: 0
@@ -7233,6 +7396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -7562,6 +7726,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1859274630
 Transform:
   m_ObjectHideFlags: 0
@@ -7589,6 +7756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -7791,6 +7959,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1899518982
 Transform:
   m_ObjectHideFlags: 0
@@ -7818,6 +7989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -7985,6 +8157,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1934586624
 Transform:
   m_ObjectHideFlags: 0
@@ -8012,6 +8187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -8372,6 +8548,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &1991729498
 Transform:
   m_ObjectHideFlags: 0
@@ -8399,6 +8578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -8761,7 +8941,7 @@ Transform:
   - {fileID: 1006748363}
   - {fileID: 1434251519}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2067077080
 MonoBehaviour:
@@ -9053,6 +9233,9 @@ MonoBehaviour:
   xpValue: 0
   maxHealth: 0
   TimeFactor: 1
+  rangeForAttack: 1.7
+  baseSpeed: 3.5
+  tickRate: 5
 --- !u!4 &2139780612
 Transform:
   m_ObjectHideFlags: 0
@@ -9080,6 +9263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 3
   searchTime: 7
   angleOfSightCone: 170
   sightRange: 18
@@ -9129,7 +9313,7 @@ PrefabInstance:
     - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2741137811648485720, guid: e84f01328d0ee4b479466afccc26c685,
         type: 3}
@@ -9155,6 +9339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie Cube (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741137811648485724, guid: e84f01328d0ee4b479466afccc26c685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2741137811954221819, guid: e84f01328d0ee4b479466afccc26c685,
         type: 3}
@@ -9230,79 +9419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b093ea6e3e0608c4aa757ccc582b9306, type: 3}
---- !u!1001 &7942934010379212026
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 486289172785997364, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
+    - target: {fileID: 5558930148776942731, guid: b093ea6e3e0608c4aa757ccc582b9306,
         type: 3}
-      propertyPath: m_Name
-      value: Zombie Cube
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997366, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: Target
-      value: 
-      objectReference: {fileID: 2067077079}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 22.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.123
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_RootOrder
+      propertyPath: enemies
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 486289172785997368, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9e9ca6a4564f0a4c9d3e90457c22ce0, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b093ea6e3e0608c4aa757ccc582b9306, type: 3}
