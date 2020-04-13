@@ -49,6 +49,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""20d25524-14d0-4eda-8a9a-997e51d348e2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -194,6 +202,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3332438d-0c1b-4916-89a6-7418db721b17"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac7106a4-3765-40c6-b33b-a3a53906ce7d"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -234,6 +264,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerMovement_AimVector = m_PlayerMovement.FindAction("AimVector", throwIfNotFound: true);
         m_PlayerMovement_Shoot = m_PlayerMovement.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerMovement_Reload = m_PlayerMovement.FindAction("Reload", throwIfNotFound: true);
+        m_PlayerMovement_Sprint = m_PlayerMovement.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -287,6 +318,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerMovement_AimVector;
     private readonly InputAction m_PlayerMovement_Shoot;
     private readonly InputAction m_PlayerMovement_Reload;
+    private readonly InputAction m_PlayerMovement_Sprint;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -295,6 +327,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @AimVector => m_Wrapper.m_PlayerMovement_AimVector;
         public InputAction @Shoot => m_Wrapper.m_PlayerMovement_Shoot;
         public InputAction @Reload => m_Wrapper.m_PlayerMovement_Reload;
+        public InputAction @Sprint => m_Wrapper.m_PlayerMovement_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -316,6 +349,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Reload.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnReload;
+                @Sprint.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnSprint;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -332,6 +368,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
             }
         }
     }
@@ -360,5 +399,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAimVector(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

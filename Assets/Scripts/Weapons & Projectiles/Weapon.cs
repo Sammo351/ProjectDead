@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour {
     private bool _automatic = true;
     public bool isSilent = false;
     public float damage, damageModifier, piercingModifier;
+    public AudioSource audioFire;
 
     /* piercingModifier = does it pass through zombies? */
 
@@ -88,6 +89,7 @@ public class Weapon : MonoBehaviour {
 
     public void Fire () {
         //Debug.Log ("Bang");
+        audioFire.Play();
         var go = Instantiate (bullet) as GameObject;
         go.GetComponent<Bullet> ().damagePacket = new DamagePacket (GetComponent<Entity> (), (int) damage, damageType);
         go.GetComponent<Bullet> ().owner = GetComponent<Entity> ();

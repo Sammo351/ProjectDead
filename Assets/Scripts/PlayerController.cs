@@ -5,8 +5,7 @@ using UnityEngine.InputSystem.Controls;
 
 [RequireComponent (typeof (Rigidbody))]
 public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, IZombieTarget {
-    public float MaxAngleBeforeTurning = 45f;
-    /*   public Transform WeaponHolder; */
+
     private int _playerIndex = 0;
     private Color _playerColor = Color.white;
 
@@ -82,6 +81,11 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
 
     void OnControlsChanged (PlayerInput input) {
         this._playerInput = input;
+    }
+
+    void OnSprint(InputValue value)
+    {
+        isSprinting = value.isPressed;
     }
 
     public int PlayerIndex {
