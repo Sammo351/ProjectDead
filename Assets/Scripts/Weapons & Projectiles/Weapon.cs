@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour {
     public float damage, damageModifier, piercingModifier;
     public AudioSource audioFire;
 
+    bool isShooting=false;
+    bool firedFirstShot = false;
     /* piercingModifier = does it pass through zombies? */
 
     void Start () {
@@ -39,26 +41,33 @@ public class Weapon : MonoBehaviour {
     }
     void Update () {
 
-        if (IsPrimary) {
-            OnInput ();
+        if (IsPrimary  && isShooting) {
+           Shoot ();
         }
 
     }
-    public void OnInput () {
-        if (Input.GetMouseButtonDown (0)) {
-            //Debug.Log ("clicked");
+    public void ShootStart()
+    {
+        if(IsPrimary){isShooting = true;}
+    }
+    public void StopShoot()
+    {
+        isShooting = false;
+        firedFirstShot=false;
+    }
+    public void Shoot () {
+        
+        if(!firedFirstShot){
             PullTrigger ();
             cooldown = 0;
-        } else if (Input.GetMouseButton (0) && IsAutomatic) {
+            firedFirstShot=true;
+        } else if (IsAutomatic) {
             cooldown += Time.deltaTime;
             if (cooldown >= inverseFireRate) {
                 cooldown -= inverseFireRate;
                 PullTrigger ();
             }
 
-        }
-        if (Input.GetKey (KeyCode.R)) {
-            Reload ();
         }
     }
     //Is this weapon in players hand
