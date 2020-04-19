@@ -8,6 +8,14 @@ public class Bullet : MonoBehaviour {
     public Entity owner;
     public DamagePacket damagePacket;
     [ReadOnly, SerializeField] float life = 0;
+
+    private TrailRenderer trail;
+
+    private void Start()
+    {
+        trail = GetComponentInChildren<TrailRenderer>();
+    }
+
     void Update () {
         life += Time.deltaTime;
         if (life >= lifespan) {
@@ -16,14 +24,20 @@ public class Bullet : MonoBehaviour {
     }
     public virtual void OnCollisionEnter (Collision collision) {
         //Debug.Log ("Bullet collided " + collision.collider.gameObject);
-        var en = collision.collider.gameObject.GetComponent<IShootable> ();
+        var en = collision.collider.gameObject.GetComponents<IShootable> ();
 
-        if (collision.collider.gameObject.GetComponent<IShootable> () != null) {
+        if (en != null) {
             //Debug.Log ("Target is shootable");
-            collision.collider.gameObject.GetComponent<IShootable> ().OnShot (gameObject, damagePacket);
+            for (int i = 0; i < en.Length; i++)
+            {
+                en[i].OnShot(gameObject, damagePacket);
+            }
           
         }
 
+        trail.transform.parent = null;
+        trail.autodestruct = true;
+        trail.time = 0.1f;
         Destroy(this.gameObject);
     }
 
