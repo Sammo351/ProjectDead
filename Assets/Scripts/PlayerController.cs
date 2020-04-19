@@ -30,6 +30,9 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
     PlayerInput _playerInput;
 
     public PlayerControls playerControls;
+    private Inventory _inventory;
+
+
 
     void Awake () {
         playerControls = new PlayerControls ();
@@ -39,6 +42,8 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         _playerInput = GetComponent<PlayerInput> ();
         currentStamina = maxStamina;
         Health = maxHealth;
+        _inventory = GetComponent<Inventory>();
+        
 
         _animator = GetComponentInChildren<Animator> ();
         _rigidbody = GetComponent<Rigidbody> ();
@@ -86,6 +91,28 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
     void OnSprint(InputValue value)
     {
         isSprinting = value.isPressed;
+    }
+
+    void OnReload(InputValue value)
+    {
+        _inventory.GetPrimaryWeapon().Reload();
+    }
+
+    bool isShooting = false;
+    void OnShoot(InputValue value)
+    {
+        if(value.isPressed != isShooting)
+        {
+            if (value.isPressed)
+                _inventory.GetPrimaryWeapon().ShootStart();
+            else
+                _inventory.GetPrimaryWeapon().StopShoot();
+
+                isShooting = value.isPressed;
+        }
+
+         isShooting = value.isPressed;
+        
     }
 
     public int PlayerIndex {
