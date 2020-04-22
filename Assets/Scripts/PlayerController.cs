@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-[RequireComponent (typeof (Rigidbody))]
-public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, IZombieTarget {
+[RequireComponent(typeof(Rigidbody))]
+public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, IZombieTarget
+{
 
     private int _playerIndex = 0;
     private Color _playerColor = Color.white;
@@ -34,57 +35,68 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
 
 
 
-    void Awake () {
-        playerControls = new PlayerControls ();
-    }
-
-    public void Start () {
-        _playerInput = GetComponent<PlayerInput> ();
-        currentStamina = maxStamina;
-        Health = maxHealth;
-        _inventory = GetComponent<Inventory>();
-        
-
-        _animator = GetComponentInChildren<Animator> ();
-        _rigidbody = GetComponent<Rigidbody> ();
-
+    void Awake()
+    {
+        playerControls = new PlayerControls();
         //Sets players index and increases the index for next player
-        PlayerIndex = GLOBAL.AddPlayerController (this);
+        PlayerIndex = GLOBAL.AddPlayerController(this);
         //gets the relevent color from players index
         PlayerColor = GLOBAL._PlayerColors[PlayerIndex];
     }
 
-    void Update () {
-        if (Input.GetKeyDown (KeyCode.F)) {
-            AttemptInteraction ();
+    public void Start()
+    {
+        _playerInput = GetComponent<PlayerInput>();
+        currentStamina = maxStamina;
+        Health = maxHealth;
+        _inventory = GetComponent<Inventory>();
+
+
+        _animator = GetComponentInChildren<Animator>();
+        _rigidbody = GetComponent<Rigidbody>();
+
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            AttemptInteraction();
         }
     }
-    void OnEnable () {
-        playerControls.Enable ();
+    void OnEnable()
+    {
+        playerControls.Enable();
     }
 
-    void OnDisable () {
-        playerControls.Disable ();
+    void OnDisable()
+    {
+        playerControls.Disable();
     }
 
 
-    public void FixedUpdate () {
+    public void FixedUpdate()
+    {
 
-        HandleAiming ();
-        HandleMovement ();
-
-    }
-
-    public void OnMovement (InputValue value) {
-        this._moveVectorInput = value.Get<Vector2> ();
+        HandleAiming();
+        HandleMovement();
 
     }
 
-    public void OnAimVector (InputValue value) {
-        this._aimVectorInput = value.Get<Vector2> ();
+    public void OnMovement(InputValue value)
+    {
+        this._moveVectorInput = value.Get<Vector2>();
+
     }
 
-    void OnControlsChanged (PlayerInput input) {
+    public void OnAimVector(InputValue value)
+    {
+        this._aimVectorInput = value.Get<Vector2>();
+    }
+
+    void OnControlsChanged(PlayerInput input)
+    {
         this._playerInput = input;
     }
 
@@ -101,80 +113,102 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
     bool isShooting = false;
     void OnShoot(InputValue value)
     {
-        if(value.isPressed != isShooting)
+        if (value.isPressed != isShooting)
         {
             if (value.isPressed)
                 _inventory.GetPrimaryWeapon().ShootStart();
             else
                 _inventory.GetPrimaryWeapon().StopShoot();
 
-                isShooting = value.isPressed;
+            isShooting = value.isPressed;
         }
 
-         isShooting = value.isPressed;
-        
+        isShooting = value.isPressed;
+
+    }
+    void OnAbility(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            GetComponent<Ability>().Trigger();
+        }
     }
 
-    public int PlayerIndex {
+    public int PlayerIndex
+    {
         get { return _playerIndex; }
         set { _playerIndex = value; }
     }
-    public Color PlayerColor {
+    public Color PlayerColor
+    {
         get { return _playerColor; }
         set { _playerColor = value; }
     }
 
-    public void HandleMovement () {
+    public void HandleMovement()
+    {
         Vector2 inputVec = _moveVectorInput;
 
         float moveX = inputVec.x;
         float moveY = inputVec.y;
         //Might need to use inputVec.y.DeadZone(0.1) to eliminate controller wobbliness
 
-        Vector3 moveVec = new Vector3 (moveX, 0f, moveY);
-        moveVec = Camera.main.transform.TransformDirection (inputVec);
+        Vector3 moveVec = new Vector3(moveX, 0f, moveY);
+        moveVec = Camera.main.transform.TransformDirection(inputVec);
         moveVec.y = 0;
-        moveVec.Normalize ();
+        moveVec.Normalize();
 
-        Vector3 localizedInput = transform.InverseTransformDirection (moveVec);
+        Vector3 localizedInput = transform.InverseTransformDirection(moveVec);
 
-        if (moveVec.sqrMagnitude > 0) {
+        if (moveVec.sqrMagnitude > 0)
+        {
             //isSprinting = Input.GetKey(KeyCode.LeftShift) && currentStamina > 0;
             if (isSprinting)
                 currentStamina -= Time.fixedDeltaTime;
-        } else {
+        }
+        else
+        {
             isSprinting = false;
-            if (currentStamina < maxStamina) {
+            if (currentStamina < maxStamina)
+            {
                 currentStamina += Time.fixedDeltaTime;
-                currentStamina = Mathf.Clamp (currentStamina, 0, maxStamina);
+                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
             }
         }
 
-        _rigidbody.MovePosition (transform.position + (moveVec * GetMoveSpeed () * Time.fixedDeltaTime));
+        _rigidbody.MovePosition(transform.position + (moveVec * GetMoveSpeed() * Time.fixedDeltaTime));
     }
 
-    public float GetMoveSpeed () {
+    public float GetMoveSpeed()
+    {
         return isSprinting ? runSpeed : moveSpeed;
     }
-    public void HandleAiming () {
-        if (_playerInput == null) {
+    public void HandleAiming()
+    {
+        if (_playerInput == null)
+        {
             return;
         }
-        if (_playerInput.currentControlScheme == "Keyboard") {
-            Ray ray = Camera.main.ScreenPointToRay (_aimVectorInput);
-            Plane plane = new Plane (Vector3.up, Vector3.zero);
+        if (_playerInput.currentControlScheme == "Keyboard")
+        {
+            Ray ray = Camera.main.ScreenPointToRay(_aimVectorInput);
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
 
             float distance;
-            if (plane.Raycast (ray, out distance)) {
-                Vector3 target = ray.GetPoint (distance);
+            if (plane.Raycast(ray, out distance))
+            {
+                Vector3 target = ray.GetPoint(distance);
                 Vector3 direction = target - transform.position;
                 transform.forward = direction;
                 aimVector = direction;
             }
-        } else {
-            Vector3 aim = new Vector3 (_aimVectorInput.x, 0, _aimVectorInput.y);
-            if (aim.sqrMagnitude > 0) {
-                Vector3 direction = Camera.main.transform.TransformDirection (_aimVectorInput);
+        }
+        else
+        {
+            Vector3 aim = new Vector3(_aimVectorInput.x, 0, _aimVectorInput.y);
+            if (aim.sqrMagnitude > 0)
+            {
+                Vector3 direction = Camera.main.transform.TransformDirection(_aimVectorInput);
                 direction.y = 0;
                 transform.forward = direction;
                 aimVector = direction;
@@ -213,59 +247,72 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
     //    input = playerInput;
     //}
 
-    void AttemptInteraction () {
-        Debug.Log ("interacting");
-        foreach (Interactable ic in GameObject.FindObjectsOfType<Interactable> ()) {
+    void AttemptInteraction()
+    {
+        Debug.Log("interacting");
+        foreach (Interactable ic in GameObject.FindObjectsOfType<Interactable>())
+        {
 
-            float distance = Vector3.Distance (transform.position, ic.transform.position);
-            if (distance <= ic.InteractRange ()) {
-                Debug.Log ("With " + ic);
-                ic.OnInteraction ();
+            float distance = Vector3.Distance(transform.position, ic.transform.position);
+            if (distance <= ic.InteractRange())
+            {
+                Debug.Log("With " + ic);
+                ic.OnInteraction();
             }
         }
     }
-    void OnDrawGizmos () {
+    void OnDrawGizmos()
+    {
         //Gizmos.DrawLine(WeaponHolder.position, WeaponHolder.position + transform.forward * 5);
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine (transform.position, transform.position + transform.forward * 5);
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
     }
 
     //DEBUG STUFF
-    void OnGUI () {
+    void OnGUI()
+    {
         //GUILayout.Label ("Player Input: " + _moveVectorInput);
         //GUILayout.Label ("Player Stamina: " + currentStamina);
         //GUILayout.Label ("Input: " + _playerInput.currentControlScheme);
     }
 
-    public void OnDamaged (DamagePacket packet) {
+    public void OnDamaged(DamagePacket packet)
+    {
         Health -= packet.damage;
-        Debug.Log (packet.attacker);
-        if (Health <= 0 && packet.attacker != null) {
-            if (OnEntityKilled != null) {
-                Debug.Log ("Not even being damaged..");
-                OnEntityKilled (this, packet.attacker);
+        Debug.Log(packet.attacker);
+        if (Health <= 0 && packet.attacker != null)
+        {
+            if (OnEntityKilled != null)
+            {
+                Debug.Log("Not even being damaged..");
+                OnEntityKilled(this, packet.attacker);
 
-                Debug.Log ("MEEEE DEAD");
-            } else {
-                Debug.Log ("Delegate is empty?");
+                Debug.Log("MEEEE DEAD");
             }
-            XP.Give (xpValue);
+            else
+            {
+                Debug.Log("Delegate is empty?");
+            }
+            XP.Give(xpValue);
             //Destroy (gameObject);
         }
     }
-    public virtual void OnHeal (int healAmount) {
+    public virtual void OnHeal(int healAmount)
+    {
         Health += healAmount;
     }
 
-    public bool OnPickUpItem (Drop drop) {
-        Debug.Log ("Picked up " + drop.dropType.ToString ());
-        switch (drop.dropType) {
+    public bool OnPickUpItem(Drop drop)
+    {
+        Debug.Log("Picked up " + drop.dropType.ToString());
+        switch (drop.dropType)
+        {
             case DropType.Ammo:
-                GetComponent<Inventory> ().GetPrimaryWeapon ().OnPickUpAmmo (drop.value);
+                GetComponent<Inventory>().GetPrimaryWeapon().OnPickUpAmmo(drop.value);
                 break;
             case DropType.Health:
                 int before = Health;
-                OnHeal (drop.value);
+                OnHeal(drop.value);
                 return Health > before;
             case DropType.Perk:
                 break;

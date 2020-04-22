@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 486289172785997369}
   - component: {fileID: 486289172785997371}
   - component: {fileID: -1302786780768075555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boomer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0030a3a114083f546b4e6c0f281aeabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullVisionRadius: 6
   searchTime: 7
   angleOfSightCone: 107.23
   sightRange: 18
@@ -116,7 +117,7 @@ GameObject:
   - component: {fileID: 486289173845904123}
   - component: {fileID: 486289173845904120}
   - component: {fileID: 486289173845904121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tall Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
