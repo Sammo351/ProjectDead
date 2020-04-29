@@ -994,6 +994,7 @@ MonoBehaviour:
   StaminaSlider: {fileID: 2110769382}
   UltimateSlider: {fileID: 1817747742}
   AmmoCounter: {fileID: 1294493483}
+  WeaponName: {fileID: 991444829}
 --- !u!1 &266623863
 GameObject:
   m_ObjectHideFlags: 0
