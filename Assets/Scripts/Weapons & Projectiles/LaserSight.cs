@@ -54,7 +54,8 @@ public class LaserSight : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 50f, layers))
         {
             pos[1] = hit.point;
-            lightObj.transform.position = hit.point - (transform.forward * 0.25f);
+
+            lightObj.transform.position = hit.point + (hit.normal * 0.25f);
             lightSource.enabled = true;
 
         }

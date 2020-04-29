@@ -11,10 +11,13 @@ public class UIPlayerWidget : MonoBehaviour
     public Slider StaminaSlider;
     public Slider UltimateSlider;
     public Text AmmoCounter;
+    public Text WeaponName;
 
+    Inventory inventory;
     private void Start()
     {
         playerWeapon = playerController.GetComponent<Weapon>();
+        inventory = playerController.GetComponent<Inventory>();
     }
 
 
@@ -29,5 +32,8 @@ public class UIPlayerWidget : MonoBehaviour
         else
             AmmoCounter.text = playerWeapon.currentClip + "/" + playerWeapon.clipSize + " (" + playerWeapon.Ammo + ")";
 
+        Weapon wep = inventory.GetPrimaryWeapon();
+
+        WeaponName.text = wep != null ? wep.weaponName : "Melee";
     }
 }

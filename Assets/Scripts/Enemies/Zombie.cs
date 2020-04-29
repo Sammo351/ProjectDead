@@ -29,8 +29,10 @@ public class Zombie : Entity, IDamageable, IShootable
 
     public override void OnEntityDeath(Entity entity)
     {
-        if (animator != null)
-            animator.SetTrigger("death");
+
+
+        /*    Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+           rb.AddRelativeTorque(new Vector3(0.3f, 0.2f, 0.5f), ForceMode.Force); */
     }
 
     // Update is called once per frame

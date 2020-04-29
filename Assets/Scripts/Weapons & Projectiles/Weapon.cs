@@ -102,7 +102,7 @@ public class Weapon : MonoBehaviour
     public virtual bool HasAmmo() { return Ammo > 0; }
     public virtual bool HasClipAmmo() { return currentClip > 0; }
     public virtual bool CanUse() { return !reloading && HasClipAmmo(); }
-
+    public float zombieTargetPriority = 3;
     //Ammo available but not in currentClip. Mainly for HUD
     public int ExtraAmmo()
     {
@@ -123,16 +123,19 @@ public class Weapon : MonoBehaviour
     public void Fire()
     {
         //Debug.Log ("Bang");
-        audioFire.Play();
+        if (!isSilent)
+        {
+            audioFire.Play();
+        }
         var go = Instantiate(bullet) as GameObject;
         go.GetComponent<Bullet>().damagePacket = new DamagePacket(GetComponent<Entity>(), (int)damage, damageType);
         go.GetComponent<Bullet>().owner = GetComponent<Entity>();
         go.transform.position = SpawnPoint.position;
         go.transform.forward = SpawnPoint.forward;
-        go.GetComponent<Rigidbody>().AddForce(go.transform.forward * 10, ForceMode.Impulse);
+        go.GetComponent<Rigidbody>().AddForce(go.transform.forward * go.GetComponent<Bullet>().speed, ForceMode.Impulse);
         if (!isSilent)
         {
-            Senses.TriggerSoundAlert(transform.position);
+            Senses.TriggerSoundAlert(transform.position, zombieTargetPriority);
         }
     }
     public int Ammo

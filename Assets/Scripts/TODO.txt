@@ -36,3 +36,10 @@ shooting increases it by x 1.05f
 All enemies have a different AGGRO threshold, so they don't all just turn at the same time, unless its a BAE (Big Aggro Event), like an explosion.
 
 Sooo - Change priority to a float.. boom
+
+TODAY
+Can now spawn/trigger zombies with an attack priority (Higher is stronger priority)
+Flare gun
+Bouncy Bullet
+Added Weapon Name to UI
+

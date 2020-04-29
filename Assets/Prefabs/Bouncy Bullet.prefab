@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5249317610380579701}
   - component: {fileID: 1586450322476272062}
-  - component: {fileID: -6957004724426150698}
   - component: {fileID: 6310451800351865132}
   - component: {fileID: 6431843142532844812}
+  - component: {fileID: -2752189910852801275}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bouncy Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,30 +43,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5249317610380579699}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c508a2d0bac557c4fbb521b6347d8c64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.06
   m_Height: 0.03
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6957004724426150698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5249317610380579699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fae8f2d9a2ff604386d17298161affb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trailMaterial: {fileID: 2100000, guid: 1dca4c3654228ce4ead521ea8cf58862, type: 2}
-  lifespan: 20
-  owner: {fileID: 0}
-  life: 0
-  trail: {fileID: 0}
 --- !u!54 &6310451800351865132
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95,7 +78,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.6650944, g: 0.8165781, b: 1, a: 1}
-  m_Intensity: 0.2
+  m_Intensity: 0.51
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -144,6 +127,25 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &-2752189910852801275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5249317610380579699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619521a057cea6b4fb8b95a835fcf783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailMaterial: {fileID: 2100000, guid: 1dca4c3654228ce4ead521ea8cf58862, type: 2}
+  lifespan: 8
+  owner: {fileID: 0}
+  life: 0
+  speed: 7
+  trail: {fileID: 0}
+  maxBounce: 3
 --- !u!1 &5249317610435539054
 GameObject:
   m_ObjectHideFlags: 0

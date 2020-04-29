@@ -42,6 +42,8 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         PlayerIndex = GLOBAL.AddPlayerController(this);
         //gets the relevent color from players index
         PlayerColor = GLOBAL._PlayerColors[PlayerIndex];
+        /*   Texture2D crosshair = (Texture2D)Resources.Load("Textures/Cross_Hair");
+          Cursor.SetCursor(crosshair, Vector2.zer, CursorMode.ForceSoftware); */
     }
 
     public void Start()
@@ -132,6 +134,15 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         {
             GetComponent<Ability>().Trigger();
         }
+    }
+    void OnCycleWeapon(InputValue value)
+    {
+        float val = (float)value.Get();
+        if (Mathf.Abs(val) >= 120)
+        {
+            GetComponent<Inventory>().CycleWeapon(val > 0);
+        }
+
     }
 
     public int PlayerIndex

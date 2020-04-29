@@ -9,9 +9,10 @@ public class Bullet : MonoBehaviour
     public float lifespan = 8f;
     public Entity owner;
     public DamagePacket damagePacket;
-    [ReadOnly, SerializeField] float life = 0;
+    [ReadOnly] public float life = 0;
+    public float speed = 10;
 
-    private TrailRenderer trail;
+    public TrailRenderer trail;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void Update()
+    public void Update()
     {
         life += Time.deltaTime;
         if (life >= lifespan)

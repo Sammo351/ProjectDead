@@ -11,13 +11,15 @@ public class AlarmedVehicle : MonoBehaviour, IShootable
     private bool _alarmActivated = false;
     private float _internalTimer = 0f, _durationTimer = 0;
     public float alarmDuration = 4f;
+    public float zombieTargetPriority = 5;
 
     public void OnShot(GameObject projectile, DamagePacket packet)
     {
         if (_alarmActivated) { _durationTimer = 0; return; }
 
         GetComponent<AudioSource>().Play();
-        Spawn.Surround(transform.position, 10);
+        Spawn.SurroundWithPriority(transform.position, 10, zombieTargetPriority);
+        Senses.TriggerSoundAlert(transform.position, zombieTargetPriority);
 
         _alarmActivated = true;
         //LightPulseSpeed *= 2f;
@@ -40,6 +42,7 @@ public class AlarmedVehicle : MonoBehaviour, IShootable
 
             light.intensity = Mathf.PingPong(_internalTimer, 2.5f);
             _durationTimer += Time.deltaTime;
+            Senses.TriggerSoundAlert(transform.position, zombieTargetPriority);
             if (_durationTimer >= alarmDuration)
             {
                 _durationTimer = 0;
