@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, IZombieTarget
 {
 
+    public string playerName = "David"; //This will be a save ID. Must be unique
     private int _playerIndex = 0;
     private Color _playerColor = Color.white;
 
@@ -51,7 +52,7 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         _playerInput = GetComponent<PlayerInput>();
         currentStamina = maxStamina;
         Health = maxHealth;
-        _inventory = GetComponent<Inventory>();
+        _inventory = Inventory;
 
 
         _animator = GetComponentInChildren<Animator>();
@@ -66,6 +67,10 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         {
             AttemptInteraction();
         }
+    }
+    public Inventory Inventory
+    {
+        get { return transform.Find("Inventory").gameObject.GetComponent<Inventory>(); }
     }
     void OnEnable()
     {
@@ -109,7 +114,7 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
 
     void OnReload(InputValue value)
     {
-        _inventory.GetPrimaryWeapon().Reload();
+        _inventory.GetActiveWeapon().Reload();
     }
 
     bool isShooting = false;
@@ -118,9 +123,9 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         if (value.isPressed != isShooting)
         {
             if (value.isPressed)
-                _inventory.GetPrimaryWeapon().ShootStart();
+                _inventory.GetActiveWeapon().ShootStart();
             else
-                _inventory.GetPrimaryWeapon().StopShoot();
+                _inventory.GetActiveWeapon().StopShoot();
 
             isShooting = value.isPressed;
         }
@@ -140,7 +145,7 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         float val = (float)value.Get();
         if (Mathf.Abs(val) >= 120)
         {
-            GetComponent<Inventory>().CycleWeapon(val > 0);
+            _inventory.CycleWeapon();
         }
 
     }
@@ -319,7 +324,7 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
         switch (drop.dropType)
         {
             case DropType.Ammo:
-                GetComponent<Inventory>().GetPrimaryWeapon().OnPickUpAmmo(drop.value);
+                _inventory.GetActiveWeapon().OnPickUpAmmo(drop.value);
                 break;
             case DropType.Health:
                 int before = Health;

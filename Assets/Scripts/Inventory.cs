@@ -1,91 +1,182 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]
-    private int _ammo = 90;
+    private int _ammoPrimary = 90, _ammoSpecial = 4, _ammoThrowable = 1;
+    [SerializeField]
+    private int _ammoPrimaryMax = 90, _ammoSpecialMax = 4, _ammoThrowableMax = 1;
+    [SerializeField]
     private int _xp;
+    int weaponIndex = 0;// 0= primary 1 = special
+    [SerializeField]
+    Weapon primaryWeapon, specialWeapon;
+    //throwableWeapon;
     void Start()
     {
-        LoadWeapons();
+        GetWeapons();
+        SetActiveWeapon(weaponIndex);
+
     }
     void Update()
     {
 
     }
-    // Get all weapons and set first one to primary
-    void LoadWeapons()
-    {
-        Weapon[] weapons = GetWeapons();
-        if (weapons.Length > 0)
-        {
-            SetPrimaryWeapon(weapons[0]);
-        }
-    }
+    #region Weapon Functions
+    /*   void LoadWeapons()
+      {
+          Debug.Log("LOADED!!!!!");
+          Weapon[] weapons = GetWeapons();
+          if (weapons.Length > 0)
+          {
+              SetActiveWeapon(primaryWeapon);
+          }
+      } */
 
     Weapon[] GetWeapons()
     {
-        return gameObject.GetComponents<Weapon>();
-    }
-    public void CycleWeapon(bool forward = true)
-    {
-        int currentIndex = 0;
-        Weapon[] weps = GetWeapons();
+        Weapon[] weps = gameObject.GetComponentsInChildren<Weapon>();
+        bool gotPrimary = false;
+        bool gotSpecial = false;
         for (int i = 0; i < weps.Length; i++)
         {
-            if (weps[i].IsPrimary)
+            Weapon wep = weps[i];
+            if (wep.weaponType == WeaponType.Primary && !gotPrimary && wep.enabled)
             {
-                weps[i].StopCoroutine("ReloadWeaponOverTime");
-                weps[i].reloading = false;
-                currentIndex = i;
-                break;
+                primaryWeapon = wep;
+                gotPrimary = true;
+            }
+            else if (wep.weaponType == WeaponType.Special && !gotSpecial && wep.enabled)
+            {
+                specialWeapon = wep;
+                gotSpecial = true;
             }
         }
-        currentIndex += 1 * (forward ? 1 : -1);
-        currentIndex = (int)Mathf.Repeat((float)currentIndex, (float)weps.Length);
-        SetPrimaryWeapon(weps[currentIndex]);
+        return weps;
     }
+    public void CycleWeapon()
+    {
+        weaponIndex = weaponIndex == 0 ? 1 : 0;
+        SetActiveWeapon(weaponIndex);
+    }
+    Weapon GetWeaponFromIndex()
+    {
+        GetWeapons();
+        return weaponIndex == 0 ? primaryWeapon : specialWeapon;
+    }
+    void SetActiveWeapon(int index)
+    {
 
-    void SetPrimaryWeapon(Weapon weapon)
-    {
-        Weapon[] weps = GetWeapons();
-        for (int i = 0; i < weps.Length; i++)
+        if (index == 0)
         {
-            weps[i].IsPrimary = false;
+            weaponIndex = index;
+            primaryWeapon.IsActive = true;
+            specialWeapon.IsActive = false;
         }
-        weapon.IsPrimary = true;
-    }
-    public Weapon GetPrimaryWeapon()
-    {
-        Weapon[] weps = GetWeapons();
-        for (int i = 0; i < weps.Length; i++)
+        else if (index == 1)
         {
-            if (weps[i].IsPrimary) { return weps[i]; }
+            weaponIndex = index;
+            primaryWeapon.IsActive = false;
+            specialWeapon.IsActive = true;
         }
-        return null;
+
+        //HolsterWeapon(GetHolsteredWeapon());
+
     }
+    public Weapon GetHolsteredWeapon()
+    {
+        return weaponIndex == 0 ? specialWeapon : primaryWeapon;
+    }
+    public Weapon GetActiveWeapon()
+    {
+        return GetWeaponFromIndex();
+    }
+    /*  void HolsterWeapon(Weapon weapon)
+     {
+         weapon.gameObject.transform.parent = Player().transform.Find("Reserve_Weapon_Holder");
+     } */
     public bool OnPickUp(Drop drop)
     {
         switch (drop.dropType)
         {
             case DropType.Ammo:
-                GetPrimaryWeapon().OnPickUpAmmo(drop.value);
+                GetActiveWeapon().OnPickUpAmmo(drop.value);
                 return true;
         }
         return false;
     }
-    public int Ammo { get { return _ammo; } set { _ammo = value; } }
+    #endregion
+    GameObject Player()
+    {
+        return GetComponentInParent<PlayerController>().gameObject;
+    }
+    /* --------------------------------------------------------AMMO FUNCTIONS------------------------------------------------------ */
+    #region Ammo Functions
+    public int Ammo(WeaponType weaponType)
+    {
+        switch (weaponType)
+        {
+            case WeaponType.Primary: return _ammoPrimary;
+            case WeaponType.Special: return _ammoSpecial;
+            case WeaponType.Throwable: return _ammoThrowable;
+        }
+        return 0;
+    }
+    /* This will be affected by upgrades later */
+    public int AmmoMax(WeaponType weaponType)
+    {
+        switch (weaponType)
+        {
+            case WeaponType.Primary: return _ammoPrimaryMax;
+            case WeaponType.Special: return _ammoSpecialMax;
+            case WeaponType.Throwable: return _ammoThrowableMax;
+        }
+        return 0;
+    }
+    public void SetAmmo(WeaponType weaponType, int val)
+    {
+        switch (weaponType)
+        {
+            case WeaponType.Primary: _ammoPrimary = Mathf.Clamp(val, 0, AmmoMax(WeaponType.Primary)); break;
+            case WeaponType.Special: _ammoSpecial = Mathf.Clamp(val, 0, AmmoMax(WeaponType.Special)); break;
+            case WeaponType.Throwable: _ammoThrowable = Mathf.Clamp(val, 0, AmmoMax(WeaponType.Throwable)); break;
+        }
+    }
+    /* Retuns the amount of ammo that couldnt be kept ( so drop it) */
+    public int AddAmmo(WeaponType weaponType, int val)
+    {
+        if (val <= 0) { return 0; }
+        int before = Ammo(weaponType);
+        int after = before + val;
+        int rem = after - AmmoMax(weaponType);
+        SetAmmo(weaponType, after);
+        return rem > 0 ? rem : 0;
+    }
+    /* Returns amount of ammo taken from inventory */
+    public int RemoveAmmo(WeaponType weaponType, int val)
+    {
+        if (val <= 0) { return 0; }
+        int before = Ammo(weaponType);
+        int taken = Mathf.Min(before, val);
+        SetAmmo(weaponType, before - taken);
+        return taken;
+    }
+    #endregion
     public int XP
     {
         get { return _xp; }
         set { _xp = value; _xp = Mathf.Max(_xp, 0); }
     }
+    /*   void SaveInventory()
+      {
+          string fileName = GetComponent<PlayerController>().playerName + "_inv";
+          string OutputPath = Application.persistentDataPath + @"\" + fileName + ".json";
+          StreamWriter file = File.CreateText(OutputPath);
+          file.WriteLine(JsonUtility.ToJson(this));
+          file.Close();
+      } */
 
 }
-public enum AmmoType { Energy }
-/* 
-    Primary weapon = inhand 
-    Secondary weapon = in backpack
 
- */

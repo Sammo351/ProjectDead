@@ -1,19 +1,5 @@
-
-
-1. Write Sick Code
-2. Profit
-
-
-
-- [DONE] Move ammo to inventory so multiple weapons can share the players ammo.
 - Make all colliders in the world at least as tall as weaponHolder height, to ensure linecast hits.
 - AGGRO System
-
-
-
-
-
-
 
 Possible upgrades for weapons
 - Levels
@@ -27,8 +13,7 @@ Possible upgrades for weapons
 
     IDEAS
 Abilities
-
-    - A dash ability - removes collision with zombies
+Buy back downed players (Like COD)?
 
 
 AGGRO
@@ -42,4 +27,11 @@ Can now spawn/trigger zombies with an attack priority (Higher is stronger priori
 Flare gun
 Bouncy Bullet
 Added Weapon Name to UI
+
+INVENTORY REWORK
+XP
+Weapon Types [Primary, Special, Throwable]
+AmmoTypes (Same as Weaponm Types)
+ints for max ammo storage of each weapon Type
+BETTER weapon cycling (Primary & Special) -- Throwable will be a different button
 

@@ -16,8 +16,9 @@ public class UIPlayerWidget : MonoBehaviour
     Inventory inventory;
     private void Start()
     {
-        playerWeapon = playerController.GetComponent<Weapon>();
-        inventory = playerController.GetComponent<Inventory>();
+        inventory = playerController.Inventory;
+        playerWeapon = inventory.GetActiveWeapon();
+
     }
 
 
@@ -27,13 +28,12 @@ public class UIPlayerWidget : MonoBehaviour
 
         HealthSlider.value = (float)playerController.Health / (float)playerController.maxHealth;
         StaminaSlider.value = playerController.currentStamina / playerController.maxStamina;
+        playerWeapon = inventory.GetActiveWeapon();
         if (playerWeapon.reloading)
             AmmoCounter.text = "Reloading! " + " (" + playerWeapon.Ammo + ")";
         else
             AmmoCounter.text = playerWeapon.currentClip + "/" + playerWeapon.clipSize + " (" + playerWeapon.Ammo + ")";
 
-        Weapon wep = inventory.GetPrimaryWeapon();
-
-        WeaponName.text = wep != null ? wep.weaponName : "Melee";
+        WeaponName.text = playerWeapon != null ? playerWeapon.weaponName : "Melee";
     }
 }

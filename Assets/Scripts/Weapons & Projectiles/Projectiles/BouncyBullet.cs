@@ -27,8 +27,7 @@ public class BouncyBullet : Bullet
             }
         }
 
-        maxBounce--;
-        if (maxBounce < 0)
+        if (maxBounce-- <= 0)
         {
             trail.transform.parent = null;
             trail.autodestruct = true;
@@ -37,13 +36,11 @@ public class BouncyBullet : Bullet
             Destroy(this.gameObject);
             return;
         }
-        if (collision.collider.gameObject.GetComponent<Zombie>() != null)
+        if (true || collision.collider.gameObject.GetComponent<Zombie>() != null)
         {
-            Debug.Log("Searching");
             GameObject target = NextTarget(collision.collider.gameObject);
             if (target != null)
             {
-                Debug.Log("Found: " + target);
                 Vector3 dir = target.transform.position - transform.position;
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 dir = dir.SetY(0).normalized;

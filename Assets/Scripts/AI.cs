@@ -176,11 +176,11 @@ public class AI : MonoBehaviour, IDetectSound, IDetectSight
         }
         if (current != null)
         {
-            SetTarget(current, 1);
+            SetTarget(current, 4);
         }
         else if (IsTargetTransform())
         {
-            SetTarget(GetTargetLocation().Value, 1);
+            SetTarget(GetTargetLocation().Value, 3);
         }
     }
 
