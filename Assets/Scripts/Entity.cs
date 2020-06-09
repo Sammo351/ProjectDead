@@ -1,11 +1,17 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class Entity : MonoBehaviour {
 
     int health;
+    [TitleGroup("Entity Settings")]
+    [SuffixLabel("Xp", Overlay = true)]
     public int xpValue;
+    [TabGroup("Vitals")]
+    [SuffixLabel("Hp", Overlay = true)]
     public int maxHealth;
+    [TitleGroup("Entity Settings")]
     public float TimeFactor = 1f;
 
     public SimpleEntityEvent OnDeathEvent;
@@ -42,7 +48,9 @@ public class Entity : MonoBehaviour {
     }
 
     public float deltaTime { get { return Time.deltaTime * TimeFactor; } }
-
+    [TabGroup("Vitals")]
+    [ShowInInspector]
+    [SuffixLabel("Hp", Overlay =true)]
     public int Health {
         get {
             return health;

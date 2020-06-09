@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -11,19 +12,36 @@ public class PlayerController : Entity, ICanPickUpItem, IDamageable, IHealable, 
     private Color _playerColor = Color.white;
 
     private Animator _animator;
+  
     private Rigidbody _rigidbody;
 
+    
+    [TabGroup("Movement")]
     public float moveSpeed = 10f;
+    [TabGroup("Movement")]
     public float runSpeed = 15f;
-
+    [TitleGroup("Aim Settings", HorizontalLine =true)]
+    
+    [ToggleLeft]
     public bool UseAimAssist = true;
+    [ShowIfGroup("UseAimAssist")]
+    [Indent]
+    [SuffixLabel("m", Overlay = true)]
     public float AimAssistDistance = 10f;
+    [Indent]
+    [ShowIfGroup("UseAimAssist")]
+    [SuffixLabel("deg", Overlay = true)]
     public float AimAssistAngle = 15f;
 
+    [TitleGroup("Runtime Info")]
+    [ShowInInspector]
     internal Vector3 aimVector;
 
+    [ReadOnly][TitleGroup("Runtime Info")]
     public bool isSprinting = false;
+    [TabGroup("Stamina")]
     public float maxStamina = 10;
+    [TabGroup("Stamina")]
     public float currentStamina = 10;
 
     private Vector2 _moveVectorInput;

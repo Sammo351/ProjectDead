@@ -34,6 +34,7 @@ public class UIPlayerWidget : MonoBehaviour
 
         Weapon wep = inventory.GetPrimaryWeapon();
 
+        if(WeaponName)
         WeaponName.text = wep != null ? wep.weaponName : "Melee";
     }
 }

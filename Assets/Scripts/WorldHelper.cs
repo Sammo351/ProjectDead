@@ -30,7 +30,7 @@ public class WorldHelper : MonoBehaviour {
 
             Vector3 direction = hit.point - point;
 
-            RaycastHit newHit;
+            //RaycastHit newHit;
 
             // if (Physics.Raycast(point, direction, out newHit, Radius, Instance.ExplosionLayer))
             // {

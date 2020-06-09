@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor (typeof (Weapon))]
+//[CustomEditor (typeof (Weapon))]
 public class EditorWeapon : Editor {
     private static readonly Color bColor = new Color (0f, 0f, 1f, 0.1f);
     GameObject t;

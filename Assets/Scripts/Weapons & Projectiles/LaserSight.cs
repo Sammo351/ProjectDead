@@ -35,7 +35,8 @@ public class LaserSight : MonoBehaviour
         line.endColor = color;
         line.material = new Material(material);
         line.material.SetColor("_EmissionColor", color);
-
+        line.receiveShadows = false;
+        line.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
     }
 

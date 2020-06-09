@@ -1,23 +1,41 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Inventory))]
 public class Weapon : MonoBehaviour
 {
+
+    [TitleGroup("Bullet settings")]
     public GameObject bullet;
+    [TitleGroup("Bullet settings")]
     public Transform SpawnPoint;
-    public DamageType damageType = DamageType.Bullet;
+    
+    [TitleGroup("Ammo Settings")]
     public int clipSize, currentClip;
-    public float fireRate, reloadTime; // how shots per second
+    [TitleGroup("Fire Settings")]
+    public float fireRate; // how shots per second
     float inverseFireRate; // how many seconds per shot
+    [TitleGroup("Reload Settings")]
     [ReadOnly] public bool reloading = false;
+    [TitleGroup("Reload Settings")]
+    public float reloadTime;
     float cooldown = 0; // how long until can fire next shot automatically 
     bool _isPrimary = false;
+    [TitleGroup("Weapon Settings", Order =-1)]
     public string weaponName = "Pistol";
     [SerializeField]
+    [TitleGroup("Weapon Settings")]
     private bool _automatic = true;
+    [TitleGroup("Weapon Settings")]
     public bool isSilent = false;
+
+    [TitleGroup("Damage Settings")]
     public float damage, damageModifier, piercingModifier;
+    [TitleGroup("Damage Settings")]
+    public DamageType damageType = DamageType.Bullet;
+
+    [Title("Misc")]
     public AudioSource audioFire;
     float timeSinceLastFired = 100;
 
@@ -25,12 +43,19 @@ public class Weapon : MonoBehaviour
     bool firedFirstShot = false;
     /* piercingModifier = does it pass through zombies? */
 
+    Entity _entity;
+    [ShowInInspector]
+    Inventory _inventory;
+
     void Start()
     {
+        _entity = GetComponent<Entity>();
         QuickSet();
-        if (!GetComponent<Inventory>())
+        _inventory = gameObject.GetComponent<Inventory>();
+        Debug.Log("Inventory set");
+        if (_inventory == null)
         {
-            gameObject.AddComponent<Inventory>();
+            _inventory = gameObject.AddComponent<Inventory>();
         }
     }
     //_reloadTime & _fireRate  = /per second
@@ -46,8 +71,6 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-
-
         timeSinceLastFired += Time.deltaTime;
 
         if (IsPrimary && isShooting)
@@ -120,29 +143,33 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    
     public void Fire()
     {
-        //Debug.Log ("Bang");
-        if (!isSilent)
-        {
-            audioFire.Play();
-        }
         var go = Instantiate(bullet) as GameObject;
-        go.GetComponent<Bullet>().damagePacket = new DamagePacket(GetComponent<Entity>(), (int)damage, damageType);
-        go.GetComponent<Bullet>().owner = GetComponent<Entity>();
+        Bullet _bulletObj = go.GetComponent<Bullet>();
+        _bulletObj.damagePacket = new DamagePacket(_entity, (int)damage, damageType);
+        _bulletObj.owner = _entity;
         go.transform.position = SpawnPoint.position;
         go.transform.forward = SpawnPoint.forward;
-        go.GetComponent<Rigidbody>().AddForce(go.transform.forward * go.GetComponent<Bullet>().speed, ForceMode.Impulse);
+        go.GetComponent<Rigidbody>()?.AddForce(go.transform.forward * _bulletObj.speed, ForceMode.Impulse);
+
         if (!isSilent)
         {
             Senses.TriggerSoundAlert(transform.position, zombieTargetPriority);
+            audioFire.Play();
         }
     }
+
+
     public int Ammo
     {
-        get { return GetComponent<Inventory>().Ammo; }
-        set { GetComponent<Inventory>().Ammo = value; }
+        get { return _inventory ? _inventory.Ammo : 0; }
+        set { _inventory.Ammo = value; }
     }
+
+
+
     public virtual bool UseAmmo()
     {
 

@@ -16,6 +16,8 @@ public class DebugControls : MonoBehaviour
         if (Input.GetKey(KeyCode.Y))
             Time.timeScale = Mathf.Clamp(Time.timeScale + 0.1f, 0f, 1f);
         
+        
+
         if (Input.GetKey(KeyCode.T))
             Time.timeScale = Mathf.Clamp(Time.timeScale - 0.1f, 0.1f, 1f);
 
